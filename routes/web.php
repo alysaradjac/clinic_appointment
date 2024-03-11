@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
+//forms/log in page
 Route::get('/login', function () {
     return view('forms.login');
 });
@@ -25,10 +25,12 @@ Route::get('/register', function () {
     return view('forms.register');
 });
 
+Route::get('/sucessful', function () {
+    return view('forms.sucessful');
+});
+
+//dashboard
 Route::get('/dashboard', function () {
     return view('dashboard.dashboard');
 });
 
-Route::get('/sucessful', function () {
-    return view('forms.sucessful');
-});
