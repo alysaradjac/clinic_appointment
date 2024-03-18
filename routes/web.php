@@ -32,3 +32,9 @@ Route::get('/dashboard', function () {
 Route::get('/sucessful', function () {
     return view('forms.sucessful');
 });
+
+//appointment form
+
+Route::get('/appointment', function () {
+    return view('appointment form.appointment_form');
+});
