@@ -32,3 +32,11 @@ Route::get('/dashboard', function () {
 Route::get('/sucessful', function () {
     return view('forms.sucessful');
 });
+
+Route::get('/profile', function () {
+    return view('dashboard.profile');
+});
+
+Route::get('/calendar', function () {
+    return view('calendar');
+});
