@@ -125,13 +125,13 @@
         <label for="contactM">Contact No.</label><br>
 
         <input type="text" id="contactS"><br>
-        <label for="contactS">COntact No.</label><br>
+        <label for="contactS">Contact No.</label><br>
 
         <input type="text" id="conactG"><br>
         <label for="contactG">Contact No.</label><br>
 
         <input type="text" id="contactP"><br>
-        <label for="contactP">Conatact No.</label><br>
+        <label for="contactP">Contact No.</label><br>
     
     
         <h4>Allergies <br>
