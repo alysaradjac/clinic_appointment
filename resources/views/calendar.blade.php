@@ -50,6 +50,11 @@
             for (let i = 1; i <= days; i++) {
                 const cell = document.createElement("div");
                 cell.classList.add("calendar-cell");
+                // Calculate day of the week
+                const dayOfWeek = new Date(year, month, i).getDay();
+                if (dayOfWeek === 0 || dayOfWeek === 6) { // Sunday or Saturday
+                    cell.classList.add("weekend");
+                }
                 cell.textContent = i;
                 calendarBody.appendChild(cell);
             }
