@@ -1,77 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Interactive Calendar</title>
-    <link rel="stylesheet" href="calendar.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interactive Calendar with Accordion</title>
+<link rel="stylesheet" href="calendar.css">
 </head>
 <body>
-    <div class="calendar">
-        <div class="calendar-header">
-            <button id="prevMonth">&lt;</button>
-            <h2 id="monthYear">January 2024</h2>
-            <button id="nextMonth">&gt;</button>
-        </div>
-        <div class="calendar-body">
-            <!-- Days will be generated here -->
-        </div>
+
+  <div class="calendar">
+    <div class="calendar-header">
+      <button id="prevMonth">&lt;</button>
+      <h2>January 2024</h2>
+      <button id="nextMonth">&gt;</button>
     </div>
-
-    <script>
-        const prevMonthBtn = document.getElementById("prevMonth");
-        const nextMonthBtn = document.getElementById("nextMonth");
-        const calendarHeader = document.getElementById("monthYear");
-        const calendarBody = document.querySelector(".calendar-body");
-        
-        let currentDate = new Date();
-        currentDate.setDate(1); // Set to the first day of the current month
-
-        function daysInMonth(year, month) {
-            return new Date(year, month + 1, 0).getDate();
+    <div class="calendar-body">
+      <!-- Days will be added dynamically here -->
+      <div class="calendar-cell">Sun</div>
+      <div class="calendar-cell">Mon</div>
+      <div class="calendar-cell">Tue</div>
+      <div class="calendar-cell">Wed</div>
+      <div class="calendar-cell">Thu</div>
+      <div class="calendar-cell">Fri</div>
+      <div class="calendar-cell">Sat</div>
+      <!-- End of Days -->
+    </div>
+  </div>
+  
+  <script>
+    const prevMonthBtn = document.getElementById("prevMonth");
+    const nextMonthBtn = document.getElementById("nextMonth");
+    const calendarHeader = document.querySelector(".calendar-header h2");
+    const calendarBody = document.querySelector(".calendar-body");
+    // Initial month and year
+    let currentMonth = 0; // January
+    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    // Update calendar with the given month index
+    function updateCalendar(monthIndex) {
+      calendarHeader.textContent = months[monthIndex] + " 2024";
+      // Here you can dynamically generate days based on monthIndex
+      // For simplicity, let's just clear the current days and redraw them
+      calendarBody.innerHTML = "";
+      const daysInMonth = new Date(2024, monthIndex + 1, 0).getDate();
+      const firstDayOfMonth = new Date(2024, monthIndex, 1).getDay(); // 0 for Sunday, 1 for Monday, ...
+      const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']; // Modified order of days
+      // Add days of the week
+      daysOfWeek.forEach(day => {
+        const cell = document.createElement("div");
+        cell.classList.add("calendar-cell");
+        cell.textContent = day;
+        calendarBody.appendChild(cell);
+      });
+      // Add empty cells before the first day of the month
+      for (let i = 0; i < firstDayOfMonth; i++) {
+        const emptyCell = document.createElement("div");
+        emptyCell.classList.add("calendar-cell");
+        calendarBody.appendChild(emptyCell);
+      }
+      for (let i = 1; i <= daysInMonth; i++) {
+        const cell = document.createElement("div");
+        cell.classList.add("calendar-cell");
+        cell.textContent = i;
+        // Make Saturday and Sunday inactive
+        if (cell.textContent === 'Sat' || cell.textContent === 'Sun') {
+          cell.classList.add("inactive");
+        } else {
+          // Add accordion functionality
+          const panel = document.createElement("div");
+          panel.classList.add("panel");
+          panel.textContent = "Time:     Dental     8:00-9:00AM     -     Annual:     8:00-6:00PM";
+          // Add click event to show/hide accordion
+          cell.addEventListener("click", function(event) {
+            const panels = document.querySelectorAll(".panel");
+            panels.forEach(panel => {
+              if (panel !== event.currentTarget.querySelector(".panel")) {
+                panel.style.display = "none";
+              }
+            });
+            const panel = event.currentTarget.querySelector(".panel");
+            panel.style.display = (panel.style.display === "block") ? "none" : "block";
+          });
+          cell.appendChild(panel);
         }
-
-        function updateCalendar(year, month) {
-            calendarHeader.textContent = `${new Date(year, month).toLocaleString('default', { month: 'long' })} ${year}`;
-            calendarBody.innerHTML = '<div class="calendar-cell">Mon</div><div class="calendar-cell">Tue</div><div class="calendar-cell">Wed</div><div class="calendar-cell">Thu</div><div class="calendar-cell">Fri</div><div class="calendar-cell">Sat</div><div class="calendar-cell">Sun</div>';
-
-            let firstDayOfMonth = new Date(year, month).getDay();
-            firstDayOfMonth = firstDayOfMonth === 0 ? 7 : firstDayOfMonth; // Adjust for Sunday (0 in JS) to be 7
-            
-            // Add blank days to align the first day of the month
-            for (let i = 1; i < firstDayOfMonth; i++) {
-                const blankCell = document.createElement("div");
-                blankCell.classList.add("calendar-cell");
-                calendarBody.appendChild(blankCell);
-            }
-
-            // Add days of the month
-            const days = daysInMonth(year, month);
-            for (let i = 1; i <= days; i++) {
-                const cell = document.createElement("div");
-                cell.classList.add("calendar-cell");
-                // Calculate day of the week
-                const dayOfWeek = new Date(year, month, i).getDay();
-                if (dayOfWeek === 0 || dayOfWeek === 6) { // Sunday or Saturday
-                    cell.classList.add("weekend");
-                }
-                cell.textContent = i;
-                calendarBody.appendChild(cell);
-            }
-        }
-
-        prevMonthBtn.addEventListener("click", () => {
-            currentDate.setMonth(currentDate.getMonth() - 1);
-            updateCalendar(currentDate.getFullYear(), currentDate.getMonth());
-        });
-
-        nextMonthBtn.addEventListener("click", () => {
-            currentDate.setMonth(currentDate.getMonth() + 1);
-            updateCalendar(currentDate.getFullYear(), currentDate.getMonth());
-        });
-
-        // Initial calendar setup
-        updateCalendar(currentDate.getFullYear(), currentDate.getMonth());
-    </script>
-</body>
-</html>
+        calendarBody.appendChild(cell);
+      }
+    }
+    // Event listeners for previous and next buttons
+    prevMonthBtn.addEventListener("click", () => {
+      currentMonth = (currentMonth - 1 + months.length) % months.length;
+      updateCalendar(currentMonth);
+    });
+    nextMonthBtn.addEventListener("click", () => {
+      currentMonth = (currentMonth + 1) % months.length;
+      updateCalendar(currentMonth);
+    });
+    // Initial calendar setup
+    updateCalendar(currentMonth);
+  </script>
+  
+  </body>
+  </html>
