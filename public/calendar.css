@@ -1,5 +1,5 @@
 .accordion {
-  background-color: #f1f1f1;
+  background-color: #884343;
   color: #333;
   cursor: pointer;
   padding: 18px;
@@ -12,18 +12,20 @@
 }
 
 .accordion.active, .accordion:hover {
-  background-color: #ddd;
+  background-color: #945454;
 }
 
 .panel {
+  font-family: "Georgia", serif;
   padding: 0 18px;
   display: none;
-  background-color: white;
+  background-color: rgb(143, 59, 59);
   overflow: hidden;
+  border-radius: 20px;
 }
 body {
   font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
+  background-color: #632929;
   margin: 0;
   padding: 0;
   display: flex;
@@ -35,7 +37,7 @@ body {
 .calendar {
   width: 370px;
   padding: 20px;
-  background-color: #a53737;
+  background-color: #7c2a2a;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -52,7 +54,7 @@ body {
   border: none;
   background: none;
   font-size: 18px;
-  color: #333;
+  color: #212121;
 }
 
 .calendar-body {
@@ -69,7 +71,8 @@ body {
 }
 
 .calendar-cell:hover {
-  background-color: #f0f0f0;
+  background-color: #885252;
+  border-radius: 10px;
 }
 
 .calendar-cell.clicked {
@@ -83,4 +86,8 @@ body {
   top: calc(100% + 5px);
   left: 0;
   z-index: 1;
+}
+.inactive {
+  pointer-events: none;
+  opacity: 0.5;
 }
