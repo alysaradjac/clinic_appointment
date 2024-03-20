@@ -25,6 +25,10 @@ Route::get('/register', function () {
     return view('forms.register');
 });
 
+Route::get('/sucessful', function () {
+    return view('forms.sucessful');
+});
+
 //User
 
 Route::get('/dashboard', function () {
@@ -88,4 +92,8 @@ Route::get('/admin_history', function () {
 
 Route::get('/admin_schedule', function () {
     return view('admin.admin_schedule');
+});
+
+Route::get('/admin_view', function () {
+    return view('admin.admin_view');
 });
