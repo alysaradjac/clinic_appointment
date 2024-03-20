@@ -25,10 +25,6 @@ Route::get('/register', function () {
     return view('forms.register');
 });
 
-Route::get('/sucessful', function () {
-    return view('forms.sucessful');
-});
-
 //User
 
 Route::get('/dashboard', function () {
@@ -37,10 +33,6 @@ Route::get('/dashboard', function () {
 
 Route::get('/personnel', function () {
     return view('dashboard.personnel');
-});
-
-Route::get('/appointment', function () {
-    return view('dashboard.appointment');
 });
 
 //Doctors routes
