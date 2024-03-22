@@ -14,7 +14,7 @@
     <br><br>
     <input type="password" id="password" class="input-field" placeholder="Enter your password">
     <br><br>
-    <button type="submit" class="submit"style="color:white; font-size:20px;">Sign In</button>
+    <button type="submit" class="submit">Sign In</button>
     <br><br>
     <a href="/login" style="margin-right:50px;">Not a Admin? Click to go back!</a>
     <a href="/doctor_login" style="text-decoration:none; color:black;">Doctor</a>

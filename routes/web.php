@@ -39,6 +39,10 @@ Route::get('/personnel', function () {
     return view('dashboard.personnel');
 });
 
+Route::get('/schedule', function () {
+    return view('dashboard.appointment');
+});
+
 //Doctors routes
 
 Route::get('/doctor_login', function () {
