@@ -26,6 +26,7 @@ button{
     font-size: 30px;
     width: 250px;
     margin: 0 -40px;
+    cursor: pointer;
 }
 
 /* Container on the right side */

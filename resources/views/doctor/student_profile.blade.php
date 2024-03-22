@@ -42,6 +42,7 @@
     <br>
   <p>Please describe the symptoms or concerns that you would like to discuss during your appointment time</p>
   <p>N/A</p>
+  <a href="/remarks_form" class="a">Remarks</a>
 
 </div>
 
@@ -159,7 +160,7 @@
         <td>Jacklourence Broca</td>
         <td>02/05/2024</td>
         <td>8:00-9:00 AM</td>
-        <td>Pending</td>
+        <td><a href="/remarks">Remarks</a></td>
       </tr>
     </table>
   </div>

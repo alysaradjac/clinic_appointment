@@ -15,8 +15,7 @@
     <div class="container">
     <div class="container_left">
             <button type="button" onclick="location.href='doctor_dashboard'">Dasboard</button><br><br>
-            <button type="button" onclick="location.href='doctor_appointment'">Appointment</button><br><br>
-            <button type="button" onclick="location.href='doctor_patient'">Patients</button><br><br>
+            <button type="button" onclick="location.href='doctor_patient'">Appointment</button><br><br>
             <button type="button" onclick="location.href='doctor_schedule'">Schedule</button><br><br>
             <button type="button" onclick="location.href='doctor_history'">History</button><br><br>
             <form action="doctor_login">

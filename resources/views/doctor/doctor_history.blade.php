@@ -15,8 +15,7 @@
     <div class="container">
     <div class="container_left">
             <button type="button" onclick="location.href='doctor_dashboard'">Dasboard</button><br><br>
-            <button type="button" onclick="location.href='doctor_appointment'">Appointment</button><br><br>
-            <button type="button" onclick="location.href='doctor_patient'">Patients</button><br><br>
+            <button type="button" onclick="location.href='doctor_patient'">Appoinment</button><br><br>
             <button type="button" onclick="location.href='doctor_schedule'">Schedule</button><br><br>
             <button type="button" onclick="location.href='doctor_history'">History</button><br><br>
             <form action="doctor_login">
@@ -33,14 +32,14 @@
             <th>Name</th>
             <th>Date</th>
             <th>Time</th>
-            <th>Status</th>
+            <th>Remarks</th>
         </tr>
         <tr>
             <td>2022-00001</td>
             <td>Jacklourence Broca</td>
             <td>02/05/2024</td>
             <td>8:00-9:00 AM</td>
-            <td>Done</td>
+            <td><a href="/remarks">Remarks</a></td>
         </tr>
     </div>
     </table>

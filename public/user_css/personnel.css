@@ -35,32 +35,24 @@ li .out{
     cursor: pointer;
 }
 
-p{
+/* p{
     text-align: center;
     color: white;
-}
+} */
 
-h1{
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .container>div {
+    margin: 10px;
     text-align: center;
-    color: white;
-}
+  }
 
-h3{
-    margin: 0 0 0 1200px;
-    color: white;
-}
-
-.img{
-    margin: 0 0 0 550px;
-}
-
-.book_now{
-    padding: 10px;
-    width: 200px;
-    font-size: 30px;
-    margin: 0 0 0 670px;
-    border-radius: 20px;
-    cursor: pointer;
-}
-
-
+  .container img {
+    display: block;
+    margin: 0 0 10px 300px;
+  }

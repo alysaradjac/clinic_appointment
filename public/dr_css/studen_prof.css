@@ -64,6 +64,11 @@ img{
     column-gap: 300px;
   }
 
+  .a{
+    margin: 0 0 0 700px;
+    font-size: 20px;
+  }
+
   .stud_table{
     border-collapse: separate;
     border-spacing: 0 10px;
