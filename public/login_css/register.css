@@ -35,4 +35,21 @@ body{
     border-color: rgba(86, 18, 9, 1);
     background-color: rgba(86, 18, 9, 1);
 }
-
+.input h4 {
+    margin-bottom: 20px;
+}
+.condition {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.condition label, .condition input[type="checkbox"] {
+    margin-right: 10px;
+}
+.spacer {
+    flex-grow: 1;
+}
+.paternal, .maternal {
+    display: inline-flex;
+    align-items: center;
+}

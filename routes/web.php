@@ -39,7 +39,7 @@ Route::get('/personnel', function () {
     return view('dashboard.personnel');
 });
 
-Route::get('/schedule', function () {
+Route::get('/appointment', function () {
     return view('dashboard.appointment');
 });
 

@@ -13,9 +13,9 @@ body{
 
 .container_left{
     border: white;
-    padding: 50px;
+    padding: 70px;
     width: 200px;
-    height: 410px;
+    height: 475px;
     background-color: #D9D9D9;
 }
 
@@ -24,7 +24,8 @@ button{
     border: none;
     position: absolute;
     font-size: 30px;
-    width: 200px;
+    width: 250px;
+    margin: 0 -40px;
 }
 
 /* Container on the right side */
@@ -39,7 +40,7 @@ button{
 
 .hright{
     background-color: #AA8383;
-    margin-right: -50px; 
+    margin: 0 -120px 0 0; 
 }
 
 .above_table{
@@ -53,11 +54,13 @@ th{
     padding: 5px;
     text-align: center;
     background-color: #D6A8A8;
+    font-size: 30px;
 }
 
 td{
     width: 300px;
-    padding: 5px;
+    padding: 10px;
     text-align: center;
-    background-color: #8E7474;
+    background-color: #fffafa;
+    font-size: 20px;
 }

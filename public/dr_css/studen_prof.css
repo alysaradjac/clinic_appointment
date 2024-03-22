@@ -17,7 +17,7 @@ img{
 
 .grid-container {
     display: grid;
-    column-gap: 300px;
+    column-gap: 400px;
     grid-template-columns: auto auto auto;
     padding: 10px;
   }
@@ -57,7 +57,7 @@ img{
   /* Style the tab content */
   .tabcontent {
     display: none;
-    padding: 6px 60px;
+    padding: 6px 10px;
     border: 1px solid #ccc;
     border-top: none;
     grid-template-columns: auto auto auto;
@@ -75,4 +75,5 @@ img{
     padding: 5px;
     text-align: center;
     background-color: #D6A8A8;
+    font-size: 20px;
   }

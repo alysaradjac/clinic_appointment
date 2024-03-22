@@ -15,22 +15,22 @@
     <div class="container_left">
             <button type="button" onclick="location.href='admin_dashboard'">Dasboard</button><br><br>
             <button type="button" onclick="location.href='admin_appointment'">Appointment</button><br><br>
-            <button type="button" onclick="location.href='admin_patient'">Patients</button><br><br>
             <button type="button" onclick="location.href='admin_schedule'">Schedule</button><br><br>
-            <button type="button" onclick="location.href='admin_history'">History</button><br><br>
+            <button type="button" onclick="location.href='admin_history'">Patients History</button><br><br>
             <form action="admin_login">
                 <button type="submit">Logout</button>
             </form>
     </div>
 
     <div class="container_right">
-        <h2 class="hright">Pending Appointments</h2><br><br>
+        <h2 class="hright">Patients</h2><br><br>
         <table class="above_table">
         <tr>
             <th>Name</th>
             <th>Date</th>
             <th>Time</th>
             <th>Reason</th>
+            <th></th>
         </tr>
 
         <tr>
@@ -38,6 +38,7 @@
             <td>02/05/2023</td>
             <td>8:00 - 9:00 A.M.</td>
             <td>Annual Check-Up</td>
+            <td><a href="admin_view">View</a></td>
         </tr>
 
         <tr>
@@ -45,6 +46,7 @@
             <td>02/05/2023</td>
             <td>9:00 - 10:00 A.M.</td>
             <td>Dental Check-Up</td>
+            <td><a href="admin_view">View</a></td>
         </tr>
         </table>
     </div>

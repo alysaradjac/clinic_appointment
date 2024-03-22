@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="dr_css/studen_prof.css">
+    <script src="dr_css/studen_prof.js"></script>
     <title>Document</title>
 
 </head>
@@ -163,23 +164,5 @@
     </table>
   </div>
 </div>
-
-
-
-  <script>
-    function openCity(evt, tabName) {
-      var i, tabcontent, tablinks;
-      tabcontent = document.getElementsByClassName("tabcontent");
-      for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-      }
-      tablinks = document.getElementsByClassName("tablinks");
-      for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-      }
-      document.getElementById(tabName).style.display = "block";
-      evt.currentTarget.className += " active";
-      }
-  </script>
 </body>
 </html>

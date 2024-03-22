@@ -15,7 +15,7 @@
     <div class="container">
     <div class="container_left">
             <button type="button" onclick="location.href='doctor_dashboard'">Dasboard</button><br><br>
-            <button type="button" onclick="location.href='admin_appointment'">Appointment</button><br><br>
+            <button type="button" onclick="location.href='doctor_appointment'">Appointment</button><br><br>
             <button type="button" onclick="location.href='doctor_patient'">Patients</button><br><br>
             <button type="button" onclick="location.href='doctor_schedule'">Schedule</button><br><br>
             <button type="button" onclick="location.href='doctor_history'">History</button><br><br>
@@ -47,12 +47,10 @@
     <table class="bot_table">
         <tr>
             <th class="th">Total Appointment</th>
-            <th class="th">Total Cancelled</th>
         </tr>
 
         <tr>
-            <td class="th">3</td>
-            <td class="th">1</td>
+            <td class="th"><h2>3</h2></td>
         </tr>
     </table>
 </div>

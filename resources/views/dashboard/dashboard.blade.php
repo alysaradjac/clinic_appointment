@@ -10,7 +10,7 @@
 
         <a href="/dashboard">Home</a>
         <a href="/personnel">Personnel</a>
-        <a href="appointment">Appointment</a>
+        <a href="/appointment">Appointment</a>
 
         <a href="profile">Profile</a>
 

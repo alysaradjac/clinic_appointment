@@ -15,9 +15,8 @@
     <div class="container_left">
             <button type="button" onclick="location.href='admin_dashboard'">Dasboard</button><br><br>
             <button type="button" onclick="location.href='admin_appointment'">Appointment</button><br><br>
-            <button type="button" onclick="location.href='admin_patient'">Patients</button><br><br>
             <button type="button" onclick="location.href='admin_schedule'">Schedule</button><br><br>
-            <button type="button" onclick="location.href='admin_history'">History</button><br><br>
+            <button type="button" onclick="location.href='admin_history'">Patients History</button><br><br>
             <form action="admin_login">
                 <button type="submit">Logout</button>
             </form>
@@ -30,21 +29,21 @@
             <th>Name</th>
             <th>Date</th>
             <th>Time</th>
-            <th>Status</th>
+            <th>Remarks</th>
         </tr>
 
         <tr>
             <td>Jacklourence Broca</td>
             <td>02/05/2023</td>
             <td>8:00 - 9:00 A.M.</td>
-            <td>Pending</td>
+            <td><a href="/remarks">Remarks</a></td>
         </tr>
 
         <tr>
             <td>Alysa Joy Radjac</td>
             <td>02/05/2023</td>
             <td>9:00 - 10:00 A.M.</td>
-            <td>Done</td>
+            <td><a href="/remarks">Remarks</a></td>
         </tr>
         </table>
     </div>
