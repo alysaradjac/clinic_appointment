@@ -43,6 +43,10 @@ Route::get('/appointment', function () {
     return view('dashboard.appointment');
 });
 
+Route::get('/appointment_form', function () {
+    return view('dashboard.appointment_form');
+});
+
 Route::get('/profile', function () {
     return view('dashboard.student_profile');
 });
@@ -79,6 +83,10 @@ Route::get('/remarks_form', function () {
 
 Route::get('/remarks', function () {
     return view('doctor.remarks');
+});
+
+Route::get('/doctor_appointment', function () {
+    return view('doctor.appointment');
 });
 
 //Admin

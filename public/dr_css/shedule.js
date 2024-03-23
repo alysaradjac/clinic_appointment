@@ -39,10 +39,8 @@ function updateCalendar(monthIndex) {
       const panel = document.createElement("div");
       panel.classList.add("panel");
       panel.innerHTML = `
-      <form action="/appointment_form">
         <p>Time: Dental 8:00-9:00AM - Annual 8:00-6:00PM</p>
         <button class="button">Apply</button>
-      </form>
       `;
       // Add click event to show/hide accordion
       cell.addEventListener("click", function(event) {

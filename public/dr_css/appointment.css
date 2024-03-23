@@ -1,35 +1,38 @@
-.navbar_top {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: white;
-  z-index: 1000;
+.container{
   display: flex;
-  justify-content: space-around;
-  padding: 10px 0;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-.navbar_top a{
-  font-weight: bold;
-  text-decoration: none;
-  color: black;
-  font-size: 30px;
-  padding: 50px 0 0 30px;
-  margin: 0 0 0 100px;
+.navbar_top {
+  background-color: white;
+  padding: 0 0 0 0;
 }
 
-.navbar_top .out{
-  margin: 90px 0 0 70px;
-  padding: 5px;
-  width: 100px;
-  border-radius: 20px;
-  font-size: 20px;
-  font-weight: bold;
-  color: white;
-  background-color: #561209;
-  cursor: pointer;
+img{
+  width: 250px;
+  margin: 0 20 0 0;
+}
+/* Container on the left side */
+
+
+h3{
+  font-weight: normal;
+}
+
+.container_left{
+  border: white;
+  padding: 50px;
+  width: 200px;
+  height: 560px;
+  background-color: #D9D9D9;
+  margin: 0 0 0 0;
+}
+
+.container_right{
+  border: white;
+  padding: 50px;
+  width: 1140px;
+  height: 560px;
+  background-color: #CEBFBF; 
 }
 
 body {
@@ -45,10 +48,10 @@ body {
 }
 
 .calendar {
-  margin-top: 20px;
+  margin: 60px 0 0 300px;
   width: 370px;
   padding: 20px;
-  background-color: #7c2a2a;
+  background-color: white;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   z-index: 1;
@@ -152,6 +155,16 @@ body {
   display: inline-block;
   font-size: 16px;
   margin: 4px 2px;
+  cursor: pointer;
+}
+
+.btn{
+  background-color: #D6A8A8;
+  border: none;
+  position: absolute;
+  font-size: 30px;
+  width: 200px;
+  margin: 0 0 0 -20px;
   cursor: pointer;
 }
 
