@@ -13,13 +13,15 @@
 
     <div class="container">
     <div class="container_left">
-            <button type="button" onclick="location.href='admin_dashboard'">Dasboard</button><br><br>
-            <button type="button" onclick="location.href='admin_appointment'">Appointment</button><br><br>
-            <button type="button" onclick="location.href='admin_schedule'">Schedule</button><br><br>
-            <button type="button" onclick="location.href='admin_history'">Patients History</button><br><br>
+    <div class="btn">
+            <button type="button" onclick="location.href='admin_dashboard'">Dasboard</button><br>
+            <button type="button" onclick="location.href='admin_appointment'">Appointment</button><br>
+            <button type="button" onclick="location.href='admin_schedule'">Schedule</button><br>
+            <button type="button" onclick="location.href='admin_history'">Patients History</button><br>
             <form action="admin_login">
                 <button type="submit">Logout</button>
             </form>
+    </div>
     </div>
 
     <div class="container_right">

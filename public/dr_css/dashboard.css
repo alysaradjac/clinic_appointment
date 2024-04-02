@@ -11,13 +11,14 @@ html, body{
 }
 
 .navbar_top {
-    background-color: white;
-    margin-bottom: 0px;
-}
-
-img{
+    background-color: rgba(86, 18, 9, 1);
+    margin: 0 0 0 0;
+  }
+  
+  img{
     width: 250px;
-}
+    margin: 0 0 0 0;
+  }
 /* Container on the left side */
 
 
@@ -26,34 +27,39 @@ h3{
 }
 
 .container_left{
-    border: white;
+    border: rgba(86, 18, 9, 1);
     padding: 50px;
-    width: 200px;
+    width: 190px;
     height: 560px;
-    background-color: #D9D9D9;
+    background-color: rgba(86, 18, 9, 1);
 }
 
 button{
-    background-color: #D6A8A8;
     border: none;
     position: absolute;
     font-size: 30px;
-    width: 200px;
+    font-family: 'Roboto', sans-serif;;
     margin: 0 0 0 -20px;
     cursor: pointer;
+    background-color: rgba(86, 18, 9, 1);
+    color: white;
 }
 
+.btn{
+    font-size: 30px;
+    line-height: 1.6;
+}
 /* Container on the right side */
 .container_right{
     border: white;
     padding: 50px;
     width: 1500px;
     height: 560px;
-    background-color: #CEBFBF; 
+    background-color: white; 
 }
 
 .hright{
-    background-color: #AA8383;
+    background-color: white;
     margin-right: -50px;
     font-size: 30px; 
 }
@@ -63,8 +69,9 @@ th{
     border: 0px;
     padding: 5px;
     text-align: center;
-    background-color: #D6A8A8;
-    font-size: 30px;
+    background-color: rgba(86, 18, 9, 1);
+    color: white;
+    font-size: 20px;
 }
 
 td{
@@ -88,5 +95,6 @@ td{
 
 .th{
     height: 40px;
-    background-color: #D6A8A8;
+    background-color: rgba(86, 18, 9, 1);
+    color: white;
 }

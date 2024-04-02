@@ -4,12 +4,12 @@
 
 .navbar_top {
   background-color: white;
-  padding: 0 0 0 0;
+  margin: 0 1290px 0 0;
 }
 
 img{
   width: 250px;
-  margin: 0 20 0 0;
+  margin: 0 0 0 0;
 }
 /* Container on the left side */
 
@@ -19,20 +19,19 @@ h3{
 }
 
 .container_left{
-  border: white;
+  border: rgba(86, 18, 9, 1);
   padding: 50px;
-  width: 200px;
+  width: 150px;
   height: 560px;
-  background-color: #D9D9D9;
-  margin: 0 0 0 0;
+  background-color: rgba(86, 18, 9, 1);
 }
 
 .container_right{
   border: white;
   padding: 50px;
-  width: 1140px;
+  width: 1190px;
   height: 560px;
-  background-color: #CEBFBF; 
+  background-color: white; 
 }
 
 body {
@@ -48,13 +47,14 @@ body {
 }
 
 .calendar {
-  margin: 60px 0 0 300px;
+  margin: 80px 0 0 400px;
   width: 370px;
   padding: 20px;
-  background-color: white;
+  background-color: rgba(86, 18, 9, 1);
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   z-index: 1;
+  color: white;
 }
 
 .accordion {
@@ -86,7 +86,7 @@ body {
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #632929;
+  background-color: rgba(86, 18, 9, 1);
   margin: 0;
   padding: 0;
   display: flex;
@@ -144,27 +144,18 @@ body {
   z-index: 1;
 }
 
-.button {
-  background-color: #800000;
-  border: none;
-  border-radius: 10px;
-  color: rgb(221, 221, 221);
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-}
-
-.btn{
-  background-color: #D6A8A8;
+button{
   border: none;
   position: absolute;
   font-size: 30px;
-  width: 200px;
+  font-family: 'Roboto', sans-serif;;
   margin: 0 0 0 -20px;
   cursor: pointer;
+  background-color: rgba(86, 18, 9, 1);
+  color: white;
 }
 
+.btn{
+  font-size: 30px;
+  line-height: 1.6;
+}

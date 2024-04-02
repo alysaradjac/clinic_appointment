@@ -90,15 +90,13 @@
       <p>Current Appointment:</p>
     <br>
       <p>Date: February 5, 2024</p>
-    <br>
       <p>Time: 9: 00 PM</p>                                                               
 
 </div>
 
   <div class="item5">
-  <p>Cancel Appointment</p>
+  <a href="" style="text-decoration: none; color: black; font-size:20px;">Cancel Appointment</a>
 </div>
-</div>
-  
+</div>  
 </body>
 </html>

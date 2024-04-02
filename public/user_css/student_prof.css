@@ -35,7 +35,7 @@ li .out{
 .item2 { grid-area: main; }
 .item3 { grid-area: right; }
 .item4 { grid-area: footer; }
-.item5 { grid-area: cancel; }
+.item5 { grid-area: cancel;}
 .item6 { grid-area: update; }
 
 .grid-container {
@@ -57,3 +57,4 @@ li .out{
 p{
     font-size: 20px;
 }
+

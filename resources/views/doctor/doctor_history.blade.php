@@ -14,14 +14,16 @@
 
     <div class="container">
     <div class="container_left">
-            <button type="button" onclick="location.href='doctor_dashboard'">Dasboard</button><br><br>
-            <button type="button" onclick="location.href='doctor_patient'">Appoinment</button><br><br>
-            <button type="button" onclick="location.href='doctor_appointment'">Schedule</button><br><br>
-            <button type="button" onclick="location.href='doctor_history'">History</button><br><br>
+    <div class="btn">
+            <button type="button" onclick="location.href='doctor_dashboard'">Dasboard</button><br>
+            <button type="button" onclick="location.href='doctor_patient'">Appoinment</button><br>
+            <button type="button" onclick="location.href='doctor_appointment'">Schedule</button><br>
+            <button type="button" onclick="location.href='doctor_history'">History</button><br>
             <form action="doctor_login">
                 <button type="submit">Logout</button>
             </form>
         </td>
+    </div>
     </div>
 
     <div class="container_right">
