@@ -6,50 +6,48 @@
 </head>
 <body>
 
-<ul>
-        <li><image src="https://i.ibb.co/ggN6S8v/image-2.png"></image></li>
+<div class="navbar_top">
+        <image src="https://i.ibb.co/ggN6S8v/image-2.png" class="imglogo"></image>
+        <a href="/dashboard">Home</a>
+        <a href="/personnel">Personnel</a>
+        <a href="appointment">Appointment</a>
 
-        <li><a href="/dashboard">Home</a></li>
-        <li><a href="/personnel">Personnel</a></li>
-        <li><a href="/appointment">Appointment</a></li>
-        <li><a href="profile">Profile</a></li>
+        <a href="profile">Profile</a>
 
         <form action="/login">
-            <li><button type="submit" class="out">Sign Out</button></li>
+            <button type="submit" class="out">Sign Out</button>
         </form>
-</ul>
+</div>
 
-</body>
-</html>
+<div class="a-form">
+    <h2>Medical/Dental Clinic</h2>
+    <h3>APPOINTMENT FORM</h3>
 
-<html>
-<body>
+    <form action="/appointment">
+      <label for="fname">First name:</label><br>
+      <input type="text" id="fname" name="fname" value=""><br>
+      <label for="lname">Last name:</label><br>
+      <input type="text" id="lname" name="lname" value=""><br>
 
-<h2>Medical/Dental Clinic</h2>
-<h3>APPOINTMENT FORM<h3>
+<div class="reason">Reason for Appointment</div>
+<div class="reason-option">
+      <input type="checkbox" id="annual-checkup" class="option-label">
+      <label for="annual-checkup" class="option-text">Annual Check-Up</label><br>
+      <input type="checkbox" id="annual-checkup" class="option-label">
+      <label for="annual-checkup" class="option-text">Annual Check-Up</label><br>
+      <input type="checkbox" id="annual-checkup" class="option-label">
+      <label for="annual-checkup" class="option-text">Others</label>
+</div>
 
-<form action="/appointment">
-  <label for="fname">First name:</label><br>
-  <input type="text" id="fname" name="fname" value=""><br>
-  <label for="lname">Last name:</label><br>
-  <input type="text" id="lname" name="lname" value=""><br>
+<div class="symptoms">
+      Please describe the symptoms or concerns that you would like to discuss during your appointment time.
+</div>
+<div class="symptoms-input"></div><br>
+      <textarea placeholder="Type your other symptoms  here..."></textarea><br>
 
-  <div class="reason">Reason for Appointment</div>
-  <div class="reason-option">
-    <input type="checkbox" id="annual-checkup" class="option-label">
-    <label for="annual-checkup" class="option-text">Annual Check-Up</label><br>
-    <input type="checkbox" id="annual-checkup" class="option-label">
-    <label for="annual-checkup" class="option-text">Annual Check-Up</label><br>
-    <input type="checkbox" id="annual-checkup" class="option-label">
-    <label for="annual-checkup" class="option-text">Others</label>
-  </div>
-
-  <div class="symptoms">Please describe the symptoms or concerns that you would like to discuss during your appointment time.</div>
-  <div class="symptoms-input"></div><br>
-  <textarea placeholder="Type your other symptoms  here..."></textarea><br>
-
-    <button type="submit">Done</button>
-  </div>
+     <button type="submit">Done</button>
+</div>
+</div>
 </form>
 
 

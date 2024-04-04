@@ -5,18 +5,20 @@
     <link rel="stylesheet" href="user_css/student_prof.css">
 </head>
 <body>
-<ul>
-      <li><image src="https://i.ibb.co/ggN6S8v/image-2.png"></image></li>
+  
+<div class="navbar_top">
+        <image src="https://i.ibb.co/ggN6S8v/image-2.png" class="imglogo"></image>
+        <a href="/dashboard">Home</a>
+        <a href="/personnel">Personnel</a>
+        <a href="appointment">Appointment</a>
 
-      <li><a href="/dashboard">Home</a></li>
-      <li><a href="/personnel">Personnel</a></li>
-      <li><a href="/appointment">Appointment</a></li>
-      <li><a href="profile">Profile</a></li>
+        <a href="profile">Profile</a>
 
-<form action="/login">
-      <li><button type="submit" class="out">Sign Out</button></li>
-</form>
-</ul>
+        <form action="/login">
+            <button type="submit" class="out">Sign Out</button>
+        </form>
+</div>
+
 
 
 <div class="grid-container">

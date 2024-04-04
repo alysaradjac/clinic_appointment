@@ -17,6 +17,7 @@
             <button type="button" onclick="location.href='admin_dashboard'">Dasboard</button><br>
             <button type="button" onclick="location.href='admin_appointment'">Appointment</button><br>
             <button type="button" onclick="location.href='admin_schedule'">Schedule</button><br>
+            <button type="button" onclick="location.href='admin_doctor'">Doctors</button><br>
             <button type="button" onclick="location.href='admin_history'">Patients History</button><br>
             <form action="admin_login">
                 <button type="submit">Logout</button>

@@ -1,24 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="user_css/dashboard.css">
-</head>
-<body>
-    <ul>
-        <li><image src="https://i.ibb.co/ggN6S8v/image-2.png"></image></li>
+@extends('layout.main')
 
-        <li><a href="/dashboard">Home</a></li>
-        <li><a href="/personnel">Personnel</a></li>
-        <li><a href="/appointment">Appointment</a></li>
-        <li><a href="profile">Profile</a></li>
-
-        <form action="/login">
-            <li><button type="submit" class="out">Sign Out</button></li>
-        </form>
-    </ul>
-
-    <h1>About</h1><br>
+<div class="content">
+    <h1>About</h1>
     <p>St. Peter’s College Medical and Dental Service Unit is dedicated to providing comprehensive medical and dental services to students, faculty, and staff. The clinic offers a wide range of healthcare services, including routine check-ups, vaccinations, minor treatments, and preventive care. It is staffed by a team of experienced medical professionals who are committed to delivering high-quality healthcare in a compassionate and efficient manner.</p><br>
 
     <h1>Dental Unit</h1>
@@ -26,7 +9,7 @@
 
     <img src="https://i.ibb.co/MZB9bXs/431042866-1102282474345126-7480418934183762545-n.png" alt="431042866-1102282474345126-7480418934183762545-n" border="0" class="img"></a><br>
 
-    <button type="submit" onclick="location.href='/schedule'" class="book_now">Book Now</button>
+    <button type="submit" onclick="location.href='/appointment'" class="book_now">Book Now</button>
 
     <h3>
         Contact Us<br>
@@ -34,5 +17,4 @@
         spcmedicaldentalclinic2021@gmail.com<br>
         (+63) 926 285 576
     </h3>
-</body>
-</html>
+</div>

@@ -117,3 +117,16 @@ Route::get('/admin_schedule', function () {
 Route::get('/admin_view', function () {
     return view('admin.admin_view');
 });
+
+Route::get('/admin_schedule', function () {
+    return view('admin.admin_schedule');
+});
+
+Route::get('/admin_doctor', function () {
+    return view('admin.admin_doctor');
+});
+
+//layout
+Route::get('/main', function () {
+    return view('layout.main');
+});

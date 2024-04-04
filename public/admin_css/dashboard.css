@@ -54,6 +54,7 @@ button{
     width: 1500px;
     height: 560px;
     background-color: white; 
+
 }
 
 .hright{
@@ -84,4 +85,8 @@ td{
 .above_table{
     border-collapse: separate;
     border-spacing: 0;
+}
+
+.box{
+    padding: 20px; 
 }
