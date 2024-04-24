@@ -11,7 +11,7 @@ html, body{
 }
 
 .navbar_top {
-    background-color: rgba(86, 18, 9, 1);
+    background-color: #632929;
     margin: 0 0 0 0;
   }
   
@@ -27,11 +27,11 @@ h3{
 }
 
 .container_left{
-    border: rgba(86, 18, 9, 1);
+    border: #632929;
     padding: 50px;
     width: 190px;
     height: 560px;
-    background-color: rgba(86, 18, 9, 1);
+    background-color: #632929;
 }
 
 button{
@@ -41,7 +41,7 @@ button{
     font-family: 'Roboto', sans-serif;;
     margin: 0 0 0 -20px;
     cursor: pointer;
-    background-color: rgba(86, 18, 9, 1);
+    background-color: #632929;
     color: white;
 }
 
@@ -95,6 +95,6 @@ td{
 
 .th{
     height: 40px;
-    background-color: rgba(86, 18, 9, 1);
+    background-color: #632929;
     color: white;
 }

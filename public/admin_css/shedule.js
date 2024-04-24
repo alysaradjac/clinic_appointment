@@ -39,7 +39,7 @@ function updateCalendar(monthIndex) {
       const panel = document.createElement("div");
       panel.classList.add("panel");
       panel.innerHTML = `
-      <form action="/doctor_sched">
+      <form action="/admin_sched">
         <p>Time: Dental 8:00-9:00AM - Annual 8:00-6:00PM</p>
         <button type="submit" class="button">Apply</button>
       </form>

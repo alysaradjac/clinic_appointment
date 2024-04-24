@@ -19,11 +19,11 @@ h3{
 }
 
 .container_left{
-  border: rgba(86, 18, 9, 1);
+  border: #632929;
   padding: 50px;
   width: 150px;
   height: 560px;
-  background-color: rgba(86, 18, 9, 1);
+  background-color: #632929;
 }
 
 .container_right{
@@ -50,7 +50,7 @@ body {
   margin: 80px 0 0 400px;
   width: 370px;
   padding: 20px;
-  background-color: rgba(86, 18, 9, 1);
+  background-color: #632929;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   z-index: 1;
@@ -86,7 +86,7 @@ body {
 
 body {
   font-family: Arial, sans-serif;
-  background-color: rgba(86, 18, 9, 1);
+  background-color: #632929;
   margin: 0;
   padding: 0;
   display: flex;
@@ -99,7 +99,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
+  margin: 0 0 0 80px;
   font-family: Georgia, serif;
   font-size: 20px;
 }
@@ -109,7 +109,7 @@ body {
   border: none;
   background: none;
   font-size: 18px;
-  color: #212121;
+  color: white;
 }
 
 .calendar-body {
@@ -146,12 +146,12 @@ body {
 
 button{
   border: none;
-  position: absolute;
+  position: fixed;
   font-size: 30px;
   font-family: 'Roboto', sans-serif;;
   margin: 0 0 0 -30px;
   cursor: pointer;
-  background-color: rgba(86, 18, 9, 1);
+  background-color: #632929;
   color: white;
 }
 
@@ -159,3 +159,18 @@ button{
   font-size: 30px;
   line-height: 1.6;
 }
+
+.next{
+  margin: 0 0 0 260px;
+}
+
+.button {
+  background-color: #632929; /* Blue background */
+  color: white; /* White text */
+  padding: 0 10px; /* Padding */
+  border: none; /* No border */
+  cursor: pointer; /* Cursor changes to a pointer when hovering */
+  display: inline-block; /* Display as inline-block */
+ }
+
+

@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\Auth\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,9 +23,17 @@ Route::get('/login', function () {
     return view('forms.login');
 });
 
-Route::get('/register', function () {
-    return view('forms.register');
-});
+// Route::get('/register', function () {
+//     return view('forms.register');
+// });
+
+Route::get('/register', [RegisterController::class, 'showRegisterForm'])->name('register.form');
+
+Route::post('/register', [RegisterController::class, 'registerPost'])->name('register');
+
+
+
+
 
 Route::get('/sucessful', function () {
     return view('forms.sucessful');
@@ -89,6 +99,11 @@ Route::get('/doctor_appointment', function () {
     return view('doctor.appointment');
 });
 
+Route::get('/doctor_sched', function () {
+    return view('doctor.doctor_form');
+});
+
+
 //Admin
 Route::get('/admin_login', function () {
     return view('admin.admin_login');
@@ -126,7 +141,6 @@ Route::get('/admin_doctor', function () {
     return view('admin.admin_doctor');
 });
 
-//layout
-Route::get('/main', function () {
-    return view('layout.main');
+Route::get('/admin_sched', function () {
+    return view('admin.admin_form');
 });

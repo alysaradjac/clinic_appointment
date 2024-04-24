@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="dr_css/appointment.css">
+    <link rel="stylesheet" href="admin_css/admin_appointment.css">
 </head>
 <body>
     <div class="navbar_top">
@@ -29,9 +29,9 @@
         <h2 class="hright">Schedule</h2><br><br>
         <div class="calendar">
     <div class="calendar-header">
-        <button id="prevMonth">&lt;</button>
+        <button id="prevMonth" class="prev">&lt;</button>
         <h2>January 2024</h2>
-        <button id="nextMonth">&gt;</button>
+        <button id="nextMonth" class="next">&gt;</button>
     </div>
     <div class="calendar-body">
         <!-- Days will be added dynamically here -->
@@ -46,26 +46,8 @@
 </div>
 </div>
 
-<div class="container">
-        <h2>Schedule Appointment</h2>
-        <form action="#" method="POST">
-            <label for="date">Date:</label>
-            <input type="date" id="date" name="date" required>
 
-            <label for="startTime">Start Time:</label>
-            <input type="time" id="startTime" name="startTime" min="00:00" max="23:00" step="3600" required>
-
-            <label for="endTime">End Time:</label>
-            <input type="time" id="endTime" name="endTime" min="00:00" max="23:00" step="3600" required>
-
-            <input type="submit" value="Submit">
-        </form>
-    </div>
-    <br>
-</div>
-
-
-<script src="dr_css/shedule.js"></script>
+<script src="admin_css/shedule.js"></script>
     </div>
 </body>
 </html>

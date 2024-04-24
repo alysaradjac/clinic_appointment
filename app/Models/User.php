@@ -18,9 +18,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        'name', 'password', 'email', 'bdate', 'contact', 'caddress', 'haddress', 'fname', 'mname', 'sname', 'guardian', 'emergency', 'history', 'health_problems', 'surgery', 'bcg', 'opv', 'dpt', 'hepb', 'measles', 'first_dose', 'second_dose', 'booster1', 'booster2', 'others', 'contactF', 'contactM', 'contactS', 'contactG', 'contactP', 'food', 'drug', 'insect', 'pollen', 'seasonal', 'environment', 'allergies_others', 'asthma', 'hyper', 'diabetes', 'heart', 'kidney', 'cancer', 'tuberculosis', 'family_others'
     ];
 
     /**
@@ -40,5 +38,6 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'password' => 'hashed',
     ];
 }

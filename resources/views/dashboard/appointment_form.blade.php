@@ -25,19 +25,19 @@
 
     <form action="/appointment">
       <label for="fname">First name:</label><br>
-      <input type="text" id="fname" name="fname" value=""><br>
+      <input type="text" id="fname" name="fname" value=""><br><br>
       <label for="lname">Last name:</label><br>
-      <input type="text" id="lname" name="lname" value=""><br>
+      <input type="text" id="lname" name="lname" value=""><br><br>
 
-<div class="reason">Reason for Appointment</div>
+<div class="reason">Reason for Appointment</div><br>
 <div class="reason-option">
-      <input type="checkbox" id="annual-checkup" class="option-label">
-      <label for="annual-checkup" class="option-text">Annual Check-Up</label><br>
+      <input type="checkbox" id="dental-checkup" class="option-label">
+      <label for="dental-checkup" class="option-text">Dental Check-Up</label><br>
       <input type="checkbox" id="annual-checkup" class="option-label">
       <label for="annual-checkup" class="option-text">Annual Check-Up</label><br>
       <input type="checkbox" id="annual-checkup" class="option-label">
       <label for="annual-checkup" class="option-text">Others</label>
-</div>
+</div><br>
 
 <div class="symptoms">
       Please describe the symptoms or concerns that you would like to discuss during your appointment time.
@@ -45,7 +45,7 @@
 <div class="symptoms-input"></div><br>
       <textarea placeholder="Type your other symptoms  here..."></textarea><br>
 
-     <button type="submit">Done</button>
+     <button type="submit" class="btn">Done</button>
 </div>
 </div>
 </form>
