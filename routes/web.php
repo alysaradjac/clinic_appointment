@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------

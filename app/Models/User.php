@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -18,7 +18,12 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name', 'password', 'email', 'bdate', 'contact', 'caddress', 'haddress', 'fname', 'mname', 'sname', 'guardian', 'emergency', 'history', 'health_problems', 'surgery', 'bcg', 'opv', 'dpt', 'hepb', 'measles', 'first_dose', 'second_dose', 'booster1', 'booster2', 'others', 'contactF', 'contactM', 'contactS', 'contactG', 'contactP', 'food', 'drug', 'insect', 'pollen', 'seasonal', 'environment', 'allergies_others', 'asthma', 'hyper', 'diabetes', 'heart', 'kidney', 'cancer', 'tuberculosis', 'family_others'
+        'name', 'password', 'email', 'bdate', 'contact', 'caddress', 'haddress', 'fname', 'mname', 'guardian', 'emergency', 'history', 'health_problems', 'surgery',
+        'id', 'dept', 'course', 'age', 'sex', 'civil_status', 'religion', 'height', 'weight',
+        'contactF', 'contactM', 'contactG', 'contactP', 'others',
+    // checkbox fields here
+        'bcg', 'opv', 'dpt', 'hepb', 'measles', '1st', '2nd', 'booster1', 'booster2',
+        'asthma', 'paternal1', 'maternal1', 'hyper', 'paternal2', 'maternal2', 'diabetes', 'paternal3', 'maternal3', 'heart', 'paternal4', 'maternal4', 'kidney', 'paternal5', 'maternal5', 'cancer', 'paternal6', 'maternal6', 'tuberculosis', 'paternal7', 'maternal7', 'others', 'paternal8', 'maternal8',
     ];
 
     /**
@@ -40,4 +45,4 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
-}
+};
