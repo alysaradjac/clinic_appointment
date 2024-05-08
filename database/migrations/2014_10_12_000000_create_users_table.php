@@ -30,36 +30,65 @@ return new class extends Migration
             $table->string('history');
             $table->string('health_problems');
             $table->string('surgery');
-            $table->boolean('bcg')->default(false);
-            $table->boolean('opv')->default(false);
-            $table->boolean('dpt')->default(false);
-            $table->boolean('hepb')->default(false);
-            $table->boolean('measles')->default(false);
-            $table->boolean('first_dose')->default(false);
-            $table->boolean('second_dose')->default(false);
-            $table->boolean('booster1')->default(false);
-            $table->boolean('booster2')->default(false);
             $table->text('others')->nullable();
             $table->string('contactF');
             $table->string('contactM');
             $table->string('contactS')->nullable();
             $table->string('contactG')->nullable();
             $table->string('contactP');
-            $table->boolean('food')->default(false);
-            $table->boolean('drug')->default(false);
-            $table->boolean('insect')->default(false);
-            $table->boolean('pollen')->default(false);
-            $table->boolean('seasonal')->default(false);
-            $table->boolean('environment')->default(false);
-            $table->boolean('allergies_others')->default(false);
-            $table->boolean('asthma')->default(false);
-            $table->boolean('hyper')->default(false);
-            $table->boolean('diabetes')->default(false);
-            $table->boolean('heart')->default(false);
-            $table->boolean('kidney')->default(false);
-            $table->boolean('cancer')->default(false);
-            $table->boolean('tuberculosis')->default(false);
-            $table->boolean('family_others')->default(false);
+            $table->json('immunization')->default(json_encode([
+                'bcg' => false,
+                'opv' => false,
+                'dpt' => false,
+                'hepb' => false,
+                'measles' => false,
+            ]));
+            $table->json('vaccine')->default(json_encode([
+                'first_dose' => false,
+                'second_dose' => false,
+                'booster1' => false,
+                'booster2' => false,
+                'others' => null,
+            ]));
+            $table->json('allergies')->default(json_encode([
+                'food' => false,
+                'drug' => false,
+                'insect' => false,
+                'pollen' => false,
+                'seasonal' => false,
+                'environment' => false,
+                'allergies_others' => false,
+            ]));
+            $table->json('medical_history')->default(json_encode([
+                'asthma' => false,
+                'hyper' => false,
+                'diabetes' => false,
+                'heart' => false,
+                'kidney' => false,
+                'cancer' => false,
+                'tuberculosis' => false,
+                'medical_others' => false,
+            ]));
+            $table->json('paternal')->default(json_encode([
+                'paternal1' => false,
+                'paternal2' => false,
+                'paternal3' => false,
+                'paternal4' => false,
+                'paternal5' => false,
+                'paternal6' => false,
+                'paternal7' => false,
+                'paternal8' => false,
+                ]));
+            $table->json('maternal')->default(json_encode([
+                'maternal1' => false,
+                'maternal2' => false,
+                'maternal3' => false,
+                'maternal4' => false,
+                'maternal5' => false,
+                'maternal6' => false,
+                'maternal7' => false,
+                'maternal8' => false,
+                ]));
             $table->timestamps();
         });
     }

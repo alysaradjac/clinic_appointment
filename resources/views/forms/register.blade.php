@@ -14,8 +14,7 @@
     <h3 style="text-align:center;">Medical/Dental<br>
         INDIVIDUAL HEALTH RECORD</h3><br><br>
         <form action="{{ route('register') }}" method="POST">
-
-        @csrf
+            @csrf
 
         <div class="input-field">
             <input type="text" name="name" id="name" required><br>
@@ -68,19 +67,20 @@
             </h4>
 
             <div class="nav">
-                <input type="checkbox" name="bcg" id="bcg">
+                <input type="hidden" >
+                <input type="checkbox" name="imunization[]" id="bcg">
                 <label for="bcg">BCG</label><br>
 
-                <input type="checkbox" name="opv" id="opv">
+                <input type="checkbox" name="imunization[]" id="opv">
                 <label for="opv">OPV</label><br>
 
-                <input type="checkbox" name="dpt" id="dpt">
+                <input type="checkbox" name="imunization[]" id="dpt">
                 <label for="dpt">DPT</label><br>
 
-                <input type="checkbox" name="hepb" id="hepb">
+                <input type="checkbox" name="imunization[]" id="hepb">
                 <label for="hepb">Hep B</label><br>
 
-                <input type="checkbox" name="measles" id="measles">
+                <input type="checkbox" name="imunization[]" id="measles">
                 <label for="measles">Measles</label><br>
 
 
@@ -89,20 +89,20 @@
                 </h5>
 
 
-                <input type="checkbox" name="1st" id="1st">
+                <input type="checkbox" name="vaccination[]" id="1st">
                 <label for="1st">1st Dose</label><br>
 
-                <input type="checkbox" name="2nd" id="2nd">
+                <input type="checkbox" name="vaccination[]" id="2nd">
                 <label for="2nd">2nd Dose</label><br>
 
-                <input type="checkbox" name="booster1" id="booster1">
+                <input type="checkbox" name="vaccination[]" id="booster1">
                 <label for="booster1">1st Booster</label><br>
 
-                <input type="checkbox" name="booster2" id="booster2">
+                <input type="checkbox" name="vaccination[]" id="booster2">
                 <label for="booster2">2nd Booster</label><br><br>
 
                 <label for="others">Others:</label><br>
-                <textarea name="others" id="others" class="others"></textarea><br><br>
+                <textarea name="vaccination[]" id="others" class="others"></textarea><br><br>
             </div>
         </div>
         <div class="input-container">
@@ -144,25 +144,25 @@
                 (Check all that apply)
             </h4>
             <div class="input-field">
-                <input type="checkbox" name="food" id="food">
+                <input type="checkbox" name="allergies[]" id="food">
                 <label for="food">Food</label><br>
 
-                <input type="checkbox" name="drug" id="drug">
+                <input type="checkbox" name="allergies[]" id="drug">
                 <label for="drug">Drug</label><br>
 
-                <input type="checkbox" name="insect" id="insect">
+                <input type="checkbox" name="allergies[]" id="insect">
                 <label for="insect">Insect Sting</label><br>
 
-                <input type="checkbox" name="pollen" id="pollen">
+                <input type="checkbox" name="allergies[]" id="pollen">
                 <label for="pollen">Pollen</label><br>
 
-                <input type="checkbox" name="seasonal" id="seasonal">
+                <input type="checkbox" name="allergies[]" id="seasonal">
                 <label for="seasonal">Seasonal</label><br>
 
-                <input type="checkbox" name="environment" id="environment">
+                <input type="checkbox" name="allergies[]" id="environment">
                 <label for="environment">Environment</label><br>
 
-                <input type="checkbox" name="others" id="other_allergy">
+                <input type="checkbox" name="allergies[]" id="allergies_others">
                 <label for="other_allergy">Others</label>
             </div>
             <div class="input">
@@ -171,85 +171,85 @@
                 </h4>
 
                 <div class="condition">
-    <input type="checkbox" name="asthma" id="asthma"><label for="asthma">Asthma</label>
+    <input type="checkbox" name="medical_history[]" id="asthma"><label for="asthma">Asthma</label>
     <div class="spacer"></div> <!-- Used for spacing -->
     <div class="paternal">
-        <input type="checkbox" name="paternal1" id="paternal1"><label for="paternal1">P</label>
+        <input type="checkbox" name="paternal[]" id="paternal1" value="asthma"><label for="paternal">P</label>
     </div>
     <div class="maternal">
-        <input type="checkbox" name="maternal1" id="maternal1"><label for="maternal1">M</label>
+        <input type="checkbox" name="maternal[]" id="maternal1" value="asthma"><label for="maternal">M</label>
     </div>
 </div>
 <div class="condition">
-    <input type="checkbox" name="hyper" id="hyper"><label for="hyper">Hyper Tension</label>
+    <input type="checkbox" name="medical_history[]" id="hyper"><label for="hyper">Hyper Tension</label>
     <div class="spacer"></div> <!-- Used for spacing -->
     <div class="paternal">
-        <input type="checkbox" name="paternal2" id="paternal2"><label for="paternal2">P</label>
+        <input type="checkbox" name="paternal[]" id="paternal2" value="hyper"><label for="paternal">P</label>
     </div>
     <div class="maternal">
-        <input type="checkbox" name="maternal2" id="maternal2"><label for="maternal2">M</label>
+        <input type="checkbox" name="maternal[]" id="maternal2" value="hyper"><label for="maternal">M</label>
     </div>
 </div>
 <div class="condition">
-    <input type="checkbox" name="diabetes" id="diabetes"><label for="diabetes">Diabetes</label>
+    <input type="checkbox" name="medical_history[]" id="diabetes"><label for="diabetes">Diabetes</label>
     <div class="spacer"></div> <!-- Used for spacing -->
     <div class="paternal">
-        <input type="checkbox" name="paternal3" id="paternal3"><label for="paternal3">P</label>
+        <input type="checkbox" name="paternal[]" id="paternal3" value="diabetes"><label for="paternal">P</label>
     </div>
     <div class="maternal">
-        <input type="checkbox" name="maternal3" id="maternal3"><label for="maternal3">M</label>
+        <input type="checkbox" name="maternal[]" id="maternal3" value="diabetes"><label for="maternal">M</label>
     </div>
 </div>
 <div class="condition">
-    <input type="checkbox" name="heart" id="heart"><label for="heart">Heart Problems</label>
+    <input type="checkbox" name="medical_history[]" id="heart"><label for="heart">Heart Problems</label>
     <div class="spacer"></div> <!-- Used for spacing -->
     <div class="paternal">
-        <input type="checkbox" name="paternal4" id="paternal4"><label for="paternal4">P</label>
+        <input type="checkbox" name="paternal[]" id="paternal4" value="heart"><label for="paternal">P</label>
     </div>
     <div class="maternal">
-        <input type="checkbox" name="maternal4" id="maternal4"><label for="maternal4">M</label>
+        <input type="checkbox" name="maternal[]" id="maternal4" value="heart"><label for="maternal">M</label>
     </div>
 </div>
 <div class="condition">
-    <input type="checkbox" name="kidney" id="kidney"><label for="kidney">Kidney Problems</label>
+    <input type="checkbox" name="medical_history[]" id="kidney"><label for="kidney">Kidney Problems</label>
     <div class="spacer"></div> <!-- Used for spacing -->
     <div class="paternal">
-        <input type="checkbox" name="paternal5" id="paternal5"><label for="paternal5">P</label>
+        <input type="checkbox" name="paternal[]" id="paternal5" value="kidney"><label for="paternal">P</label>
     </div>
     <div class="maternal">
-        <input type="checkbox" name="maternal5" id="maternal5"><label for="maternal5">M</label>
+        <input type="checkbox" name="maternal[]" id="maternal5" value="kidney"><label for="maternal">M</label>
     </div>
 </div>
 <div class="condition">
-    <input type="checkbox" name="cancer" id="cancer"><label for="cancer">Cancer</label>
+    <input type="checkbox" name="medical_history[]" id="cancer"><label for="cancer">Cancer</label>
     <div class="spacer"></div> <!-- Used for spacing -->
     <div class="paternal">
-        <input type="checkbox" name="paternal6" id="paternal6"><label for="paternal6">P</label>
+        <input type="checkbox" name="paternal[]" id="paternal6" value="cancer"><label for="paternal">P</label>
     </div>
     <div class="maternal">
-        <input type="checkbox" name="maternal6" id="maternal6"><label for="maternal6">M</label>
-    </div>
-</div>
-
-<div class="condition">
-    <input type="checkbox" name="tuberculosis" id="tuberculosis"><label for="tuberculosis">Tuberculosis</label>
-    <div class="spacer"></div> <!-- Used for spacing -->
-    <div class="paternal">
-        <input type="checkbox" name="paternal7" id="paternal7"><label for="paternal7">P</label>
-    </div>
-    <div class="maternal">
-        <input type="checkbox" name="maternal7" id="maternal7"><label for="maternal7">M</label>
+        <input type="checkbox" name="maternal[]" id="maternal6" value="cancer"><label for="maternal">M</label>
     </div>
 </div>
 
 <div class="condition">
-    <input type="checkbox" name="other" id="other"><label for="other">Others</label>
+    <input type="checkbox" name="medical_history[]" id="tuberculosis"><label for="tuberculosis">Tuberculosis</label>
     <div class="spacer"></div> <!-- Used for spacing -->
     <div class="paternal">
-        <input type="checkbox" name="paternal8" id="paternal8"><label for="paternal8">P</label>
+        <input type="checkbox" name="paternal[]" id="paternal7" value="tuberculosis"><label for="paternal">P</label>
     </div>
     <div class="maternal">
-        <input type="checkbox" name="maternal8" id="maternal8"><label for="maternal8">M</label>
+        <input type="checkbox" name="maternal[]" id="maternal7" value="tuberculosis"><label for="maternal">M</label>
+    </div>
+</div>
+
+<div class="condition">
+    <input type="checkbox" name="medical_history[]" id="medical_others"><label for="medical_others">Others</label>
+    <div class="spacer"></div> <!-- Used for spacing -->
+    <div class="paternal">
+        <input type="checkbox" name="paternal[]" id="paternal8" value="others"><label for="paternal">P</label>
+    </div>
+    <div class="maternal">
+        <input type="checkbox" name="maternal[]" id="maternal8" value="others"><label for="maternal">M</label>
     </div>
 </div>
 
