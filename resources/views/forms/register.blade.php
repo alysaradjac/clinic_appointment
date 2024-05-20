@@ -59,13 +59,13 @@
             <label for="emergency">Person To Notify In Case of Emergency</label><br>
 
             <input type="text" name="history" id="history"  placeholder="Enter your past illness"><br>
-            <label for="history">History of Past Illness (Enter N/A if not applicable)</label><br>
+            <label for="history">History of Past Illness<br>(Type N/A if not applicable)</label><br>
 
             <input type="text" name="health_problems" id="health_problems" placeholder="Enter your ongoing health problems"><br>
-            <label for="health_problems">Ongoing Health Problems (Enter N/A if not applicable)</label><br>
+            <label for="health_problems">Ongoing Health Problems<br> (Type N/A if not applicable)</label><br>
 
             <input type="text" name="surgery" id="surgery" placeholder="Enter your previous/past surgery/operations"><br>
-            <label for="surgery">Surgery/Operations (Enter N/A if not applicable)</label><br>
+            <label for="surgery">Surgery/Operations<br> (Type N/A if not applicable)</label><br>
 
             <h4>Immunization<br>
                 (Check all that apply)
