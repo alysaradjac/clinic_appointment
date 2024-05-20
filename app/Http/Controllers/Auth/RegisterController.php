@@ -42,7 +42,7 @@ class RegisterController extends Controller
             'password.min' => 'Password must have at least 8 characters.',
             'password.confirmed' => 'Passwords do not match.',
         ];
-
+    try{
         $request->validate([
             'name' => 'required|string|max:255',
             'password' => 'required|string|min:8|confirmed',
@@ -173,6 +173,11 @@ class RegisterController extends Controller
 
         $user->save();
         return redirect('/login');
+    }   
+     catch(\Exception $e){
+        // do task when error
+        echo $e->getMessage();   // insert query
+     }
 }
 
     /**

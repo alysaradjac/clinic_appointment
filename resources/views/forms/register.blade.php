@@ -25,7 +25,7 @@
             <input type="password" name="password" id="password" required autocomplete="current-password" placeholder="Must contain at least 8 letters"> @error('password') <span class="text-danger" style="color:red;">{{ $message }}</span> @enderror<br>
             <label for="password">Password</label><br>
 
-            <input type="password" name="password_confirmation" id="password_confirmation" required placeholder="Must contain 8 letters"></br>
+            <input type="password" name="password_confirmation" id="password_confirmation" required placeholder="Must contain 8 letters" autocomplete="new-password"></br>
             <label for="password_confirmation">Confirm Password</label><br>
 
             <input type="email" name="email" id="email" required autocomplete="current-email" placeholder="Enter your email"><br>
@@ -59,13 +59,13 @@
             <label for="emergency">Person To Notify In Case of Emergency</label><br>
 
             <input type="text" name="history" id="history"  placeholder="Enter your past illness"><br>
-            <label for="history">History of Past Illness</label><br>
+            <label for="history">History of Past Illness (Enter N/A if not applicable)</label><br>
 
             <input type="text" name="health_problems" id="health_problems" placeholder="Enter your ongoing health problems"><br>
-            <label for="health_problems">Ongoing Health Problems</label><br>
+            <label for="health_problems">Ongoing Health Problems (Enter N/A if not applicable)</label><br>
 
             <input type="text" name="surgery" id="surgery" placeholder="Enter your previous/past surgery/operations"><br>
-            <label for="surgery">Surgery/Operations</label><br>
+            <label for="surgery">Surgery/Operations (Enter N/A if not applicable)</label><br>
 
             <h4>Immunization<br>
                 (Check all that apply)
