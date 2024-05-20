@@ -16,7 +16,8 @@
 
         <a href="profile">Profile</a>
 
-        <form action="/login">
+        <form action="{{ route('logout') }}" method="POST">
+        @csrf
             <button type="submit" class="out">Sign Out</button>
         </form>
 </div>

@@ -3,7 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\LogInController;
 use App\Models\User;
+use App\Http\Middleware\UserLogin;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,25 +22,28 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/login', function () {
-    return view('forms.login');
-});
 
-// Route::get('/register', function () {
-//     return view('forms.register');
-// });
+
+
+Route::post('/login', [LogInController::class, 'login'])->name('login');
+Route::get('/login', [LoginController::class, 'show'])->name('login');
+Route::post('logout', [LoginController::class, 'logout'])->name('logout');
+
+Route::get('/dashboard', function () {
+    return view('dashboard.dashboard');
+})->middleware('userLogin');
 
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 
-Route::post('/register', [RegisterController::class, 'store'])->name('register');
+Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
 
 
 
 
 
-Route::get('/sucessful', function () {
-    return view('forms.sucessful');
-});
+// Route::get('/sucessful', function () {
+//     return view('forms.sucessful');
+// });
 
 //User
 

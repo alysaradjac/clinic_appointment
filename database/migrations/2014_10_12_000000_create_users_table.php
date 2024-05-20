@@ -36,59 +36,22 @@ return new class extends Migration
             $table->string('contactS')->nullable();
             $table->string('contactG')->nullable();
             $table->string('contactP');
-            $table->json('immunization')->default(json_encode([
-                'bcg' => false,
-                'opv' => false,
-                'dpt' => false,
-                'hepb' => false,
-                'measles' => false,
-            ]));
-            $table->json('vaccine')->default(json_encode([
-                'first_dose' => false,
-                'second_dose' => false,
-                'booster1' => false,
-                'booster2' => false,
-                'others' => null,
-            ]));
-            $table->json('allergies')->default(json_encode([
-                'food' => false,
-                'drug' => false,
-                'insect' => false,
-                'pollen' => false,
-                'seasonal' => false,
-                'environment' => false,
-                'allergies_others' => false,
-            ]));
-            $table->json('medical_history')->default(json_encode([
-                'asthma' => false,
-                'hyper' => false,
-                'diabetes' => false,
-                'heart' => false,
-                'kidney' => false,
-                'cancer' => false,
-                'tuberculosis' => false,
-                'medical_others' => false,
-            ]));
-            $table->json('paternal')->default(json_encode([
-                'paternal1' => false,
-                'paternal2' => false,
-                'paternal3' => false,
-                'paternal4' => false,
-                'paternal5' => false,
-                'paternal6' => false,
-                'paternal7' => false,
-                'paternal8' => false,
-                ]));
-            $table->json('maternal')->default(json_encode([
-                'maternal1' => false,
-                'maternal2' => false,
-                'maternal3' => false,
-                'maternal4' => false,
-                'maternal5' => false,
-                'maternal6' => false,
-                'maternal7' => false,
-                'maternal8' => false,
-                ]));
+            $table->string('school_id');
+            $table->string('dept');
+            $table->string('course');
+            $table->string('age');
+            $table->string('sex');
+            $table->string('civil_status');
+            $table->string('religion');
+            $table->string('height');
+            $table->string('weight');
+            
+            $table->json('immunization', 'array')->nullable()->default(json_encode([]));
+            $table->json('vaccine', 'array')->nullable()->default(json_encode([]));
+            $table->json('allergies', 'array')->nullable()->default(json_encode([]));
+            $table->json('medical_history', 'array')->nullable()->default(json_encode([]));
+            $table->json('paternal', 'array')->nullable()->default(json_encode([]));
+            $table->json('maternal', 'array')->nullable()->default(json_encode([]));
             $table->timestamps();
         });
     }

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Exception;
 
 class RegisterController extends Controller
 {
@@ -37,6 +38,11 @@ class RegisterController extends Controller
      */
     public function store(Request $request)
     {
+        $messages = [
+            'password.min' => 'Password must have at least 8 characters.',
+            'password.confirmed' => 'Passwords do not match.',
+        ];
+
         $request->validate([
             'name' => 'required|string|max:255',
             'password' => 'required|string|min:8|confirmed',
@@ -52,7 +58,7 @@ class RegisterController extends Controller
             'history' => 'required|string',
             'health_problems' => 'required|string',
             'surgery' => 'required|string',
-            'id' => 'required|string',
+            'school_id' => 'required|string',
             'dept' => 'required|string',
             'course' => 'required|string',
             'age' => 'required|string',
@@ -65,8 +71,59 @@ class RegisterController extends Controller
             'contactM' => 'required|string',
             'contactG' => 'required|string',
             'contactP' => 'required|string',
-            'others' => 'required|string',
+
+            'immunization.bcg' => 'nullable|boolean',
+            'immunization.opv' => 'nullable|boolean',
+            'immunization.dpt' => 'nullable|boolean',
+            'immunization.hepb' => 'nullable|boolean',
+            'immunization.measles' => 'nullable|boolean',
+
+            'vaccine.first_dose' => 'nullable|boolean',
+            'vaccine.second_dose' => 'nullable|boolean',
+            'vaccine.booster1' => 'nullable|boolean',
+            'vaccine.booster2' => 'nullable|boolean',
+            'vaccine.others' => 'nullable|string', 
+        
+            // Validate allergies checkboxes
+            'allergies.food' => 'nullable|boolean',
+            'allergies.drug' => 'nullable|boolean',
+            'allergies.insect' => 'nullable|boolean',
+            'allergies.pollen' => 'nullable|boolean',
+            'allergies.seasonal' => 'nullable|boolean',
+            'allergies.environment' => 'nullable|boolean',
+            'allergies.allergies_others' => 'nullable|boolean', 
+        
+            // Validate medical history checkboxes
+            'medical_history.asthma' => 'nullable|boolean',
+            'medical_history.hyper' => 'nullable|boolean',
+            'medical_history.diabetes' => 'nullable|boolean',
+            'medical_history.heart' => 'nullable|boolean',
+            'medical_history.kidney' => 'nullable|boolean',
+            'medical_history.cancer' => 'nullable|boolean',
+            'medical_history.tuberculosis' => 'nullable|boolean',
+            'medical_history.medical_others' => 'nullable|boolean', 
+        
+            // Validate paternal checkboxes
+            'paternal.paternal1' => 'nullable|boolean',
+            'paternal.paternal2' => 'nullable|boolean',
+            'paternal.paternal3' => 'nullable|boolean',
+            'paternal.paternal4' => 'nullable|boolean',
+            'paternal.paternal5' => 'nullable|boolean',
+            'paternal.paternal6' => 'nullable|boolean',
+            'paternal.paternal7' => 'nullable|boolean',
+            'paternal.paternal8' => 'nullable|boolean',
+        
+            // Validate maternal checkboxes
+            'maternal.maternal1' => 'nullable|boolean',
+            'maternal.maternal2' => 'nullable|boolean',
+            'maternal.maternal3' => 'nullable|boolean',
+            'maternal.maternal4' => 'nullable|boolean',
+            'maternal.maternal5' => 'nullable|boolean',
+            'maternal.maternal6' => 'nullable|boolean',
+            'maternal.maternal7' => 'nullable|boolean',
+            'maternal.maternal8' => 'nullable|boolean',
         ]);
+
 
         // Create a new user
         $user = new User();
@@ -84,7 +141,7 @@ class RegisterController extends Controller
         $user->history = $request->history;
         $user->health_problems = $request->health_problems;
         $user->surgery = $request->surgery;
-        $user->id = $request->id;
+        $user->school_id = $request->school_id;
         $user->dept = $request->dept;
         $user->course = $request->course;
         $user->age = $request->age;
@@ -99,99 +156,24 @@ class RegisterController extends Controller
         $user->contactP = $request->contactP;
         $user->others = $request->others;
 
-        // Handle immunization checkbox fields
-        $user->immunization = [
-            'bcg' => $request->has('immunization') && in_array('bcg', $request->immunization),
-            'opv' => $request->has('immunization') && in_array('opv', $request->immunization),
-            'dpt' => $request->has('immunization') && in_array('dpt', $request->immunization),
-            'hepb' => $request->has('immunization') && in_array('hepb', $request->immunization),
-            'measles' => $request->has('immunization') && in_array('measles', $request->immunization),
-        ];
+        $immunization = is_string($request->immunization)? json_decode($request->immunization, true) : $request->immunization;
+        $vaccine = is_string($request->vaccine)? json_decode($request->vaccine, true) : $request->vaccine;
+        $allergies = is_string($request->allergies)? json_decode($request->allergies, true) : $request->allergies;
+        $medical_history = is_string($request->medical_history)? json_decode($request->medical_history, true) : $request->medical_history;
+        $paternal = is_string($request->paternal)? json_decode($request->paternal, true) : $request->paternal;
+        $maternal = is_string($request->maternal)? json_decode($request->maternal, true) : $request->maternal;
 
-        // Handle vaccination checkbox fields
-        $user->vaccine = [
-            'first_dose' => $request->has('vaccination') && in_array('first_dose', $request->vaccination),
-            'second_dose' => $request->has('vaccination') && in_array('second_dose', $request->vaccination),
-            'booster1' => $request->has('vaccination') && in_array('booster1', $request->vaccination),
-            'booster2' => $request->has('vaccination') && in_array('booster2', $request->vaccination),
-            'others' => $request->vaccine_others,
-        ];
-
-        // Handle allergies checkbox fields
-        $user->allergies = [
-            'food' => $request->has('allergies') && in_array('food', $request->allergies),
-            'drug' => $request->has('allergies') && in_array('drug', $request->allergies),
-            'insect' => $request->has('allergies') && in_array('insect', $request->allergies),
-            'pollen' => $request->has('allergies') && in_array('pollen', $request->allergies),
-            'seasonal' => $request->has('allergies') && in_array('seasonal', $request->allergies),
-            'environment' => $request->has('allergies') && in_array('environment', $request->allergies),
-            'others' => $request->allergies_others, // Assuming the 'others' textarea contains additional allergy details
-        ];
-        
-        // Handle medical history checkbox fields...
-        $user->medical_history = [
-            'asthma' => $request->has('medical_history') && in_array('asthma', $request->medical_history),
-            'paternal1' => $request->has('medical_history') && in_array('paternal1', $request->medical_history),
-            'maternal1' => $request->has('medical_history') && in_array('maternal1', $request->medical_history),
-
-            'hyper' => $request->has('medical_history') && in_array('hyper', $request->medical_history),
-            'paternal2' => $request->has('medical_history') && in_array('paternal2', $request->medical_history),
-            'maternal2' => $request->has('medical_history') && in_array('maternal2', $request->medical_history),
-
-            'diabetes' => $request->has('medical_history') && in_array('diabetes', $request->medical_history),
-            'paternal3' => $request->has('medical_history') && in_array('paternal3', $request->medical_history),
-            'maternal3' => $request->has('medical_history') && in_array('maternal3', $request->medical_history),
-
-            'heart' => $request->has('medical_history') && in_array('heart', $request->medical_history),
-            'paternal4' => $request->has('medical_history') && in_array('paternal4', $request->medical_history),
-            'maternal4' => $request->has('medical_history') && in_array('maternal4', $request->medical_history),
-
-            'kidney' => $request->has('medical_history') && in_array('kidney', $request->medical_history),
-            'paternal5' => $request->has('medical_history') && in_array('paternal5', $request->medical_history),
-            'maternal5' => $request->has('medical_history') && in_array('maternal5', $request->medical_history),
-
-            'cancer' => $request->has('medical_history') && in_array('cancer', $request->medical_history),
-            'paternal6' => $request->has('medical_history') && in_array('paternal6', $request->medical_history),
-            'maternal6' => $request->has('medical_history') && in_array('maternal6', $request->medical_history),
-
-            'tuberculosis' => $request->has('medical_history') && in_array('tuberculosis', $request->medical_history),
-            'paternal7' => $request->has('medical_history') && in_array('paternal7', $request->medical_history),
-            'maternal7' => $request->has('medical_history') && in_array('maternal7', $request->medical_history),
-
-            'medical_others' => $request->has('medical_history') && in_array('medical_others', $request->medical_history),
-            'paternal8' => $request->has('medical_history') && in_array('paternal8', $request->medical_history),
-            'maternal8' => $request->has('medical_history') && in_array('maternal8', $request->medical_history),
-        ];
-
-        // Handle paternal checkbox fields
-        $user->paternal = [
-            'paternal1' => $request->has('paternal') && in_array('paternal1', $request->paternal),
-            'paternal2' => $request->has('paternal') && in_array('paternal2', $request->paternal),
-            'paternal3' => $request->has('paternal') && in_array('paternal3', $request->paternal),
-            'paternal4' => $request->has('paternal') && in_array('paternal4', $request->paternal),
-            'paternal5' => $request->has('paternal') && in_array('paternal5', $request->paternal),
-            'paternal6' => $request->has('paternal') && in_array('paternal6', $request->paternal),
-            'paternal7' => $request->has('paternal') && in_array('paternal7', $request->paternal),
-            'paternal8' => $request->has('paternal') && in_array('paternal8', $request->paternal),
-        ];
-
-        // Handle maternal checkbox fields
-        $user->maternal = [
-            'maternal1' => $request->has('maternal') && in_array('maternal1', $request->maternal),
-            'maternal2' => $request->has('maternal') && in_array('maternal2', $request->maternal),
-            'maternal3' => $request->has('maternal') && in_array('maternal3', $request->maternal),
-            'maternal4' => $request->has('maternal') && in_array('maternal4', $request->maternal),
-            'maternal5' => $request->has('maternal') && in_array('maternal5', $request->maternal),
-            'maternal6' => $request->has('maternal') && in_array('maternal6', $request->maternal),
-            'maternal7' => $request->has('maternal') && in_array('maternal7', $request->maternal),
-            'maternal8' => $request->has('maternal') && in_array('maternal8', $request->maternal),
-        ];
-
+        // Assign the decoded or original data to the user model
+        $user->immunization = $immunization;
+        $user->vaccine = $vaccine;
+        $user->allergies = $allergies;
+        $user->medical_history = $medical_history;
+        $user->paternal = $paternal;
+        $user->maternal = $maternal;
 
         $user->save();
-
-        return redirect()->route('sucessful');
-    }
+        return redirect('/login');
+}
 
     /**
      * Display the specified resource.
