@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class LogInController extends Controller
 {   
+
     public function show()
     {
         return view('forms.login');
@@ -21,13 +22,16 @@ class LogInController extends Controller
 
         if (Auth::attempt($credentials)) {
             // Authentication passed...
-            return redirect()->intended('dashboard'); // Redirect to the dashboard after successful login
+            return redirect()->route('dashboard'); // Redirect to the dashboard after successful login
         }
+
+        $email = $request->input('email');
+        $password = $request->input('password');
 
         // Authentication failed...
         return back()->withErrors([
             'email' => 'The provided credentials do not match our records.',
-        ])->withInput($request->only('email', 'remember'));
+        ])->withInput($request->only('email'));
     }
 
     public function logout(Request $request)

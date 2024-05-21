@@ -18,7 +18,7 @@ class UserLogin
     public function handle(Request $request, Closure $next)
     {
         if (!Auth::check()) {
-            return redirect('login');
+            return redirect('/login');
         }
 
         return $next($request);
