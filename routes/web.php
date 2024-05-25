@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LogInController;
 use App\Models\User;
 use App\Http\Middleware\UserLogin;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,9 +30,7 @@ Route::post('/login', [LogInController::class, 'login']);
 Route::get('/login', [LoginController::class, 'show'])->name('login');
 Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::get('/dashboard', function () {
-    return view('dashboard.dashboard');
-})->middleware('userLogin');
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth.user');
 
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 
