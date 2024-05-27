@@ -29,12 +29,13 @@
         <h2 class="hright">Schedule</h2><br><br>
         <div class="calendar">
     <div class="calendar-header">
-        <button id="prevMonth" class="prev">&lt;</button>
-        <h2>January 2024</h2>
-        <button id="nextMonth" class="next">&gt;</button>
+        <button id="prevYear" class="prevyr">&lt;&lt;</button>
+        <button id="prevMonth" class="prevmt">&lt;</button>
+        <span id="calendarTitle">January 2024</span>
+        <button id="nextMonth" class="nextmt">&gt;</button>
+        <button id="nextYear" class="nextyr">&gt;&gt;</button>
     </div>
     <div class="calendar-body">
-        <!-- Days will be added dynamically here -->
         <div class="calendar-cell">Sun</div>
         <div class="calendar-cell">Mon</div>
         <div class="calendar-cell">Tue</div>
@@ -42,12 +43,11 @@
         <div class="calendar-cell">Thu</div>
         <div class="calendar-cell">Fri</div>
         <div class="calendar-cell">Sat</div>
-        <!-- End of Days -->
-</div>
+    </div>
 </div>
 
 
 <script src="admin_css/shedule.js"></script>
-    </div>
+</div>
 </body>
 </html>

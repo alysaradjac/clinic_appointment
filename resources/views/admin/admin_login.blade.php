@@ -10,9 +10,9 @@
     <h1>Log In</h1>
     <div class="input-container">
     <form action="/admin_dashboard">
-    <input type="text" id="email" class="input-field" placeholder="Enter your email">
+    <input type="text" name="email" id="email" class="input-field" placeholder="Enter your email">
     <br><br>
-    <input type="password" id="password" class="input-field" placeholder="Enter your password">
+    <input type="password" name="password" id="password" class="input-field" placeholder="Enter your password">
     <br><br>
     <button type="submit" class="submit">Sign In</button>
     <br><br>

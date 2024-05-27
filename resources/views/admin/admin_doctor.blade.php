@@ -46,10 +46,17 @@
         </svg>
         <div>Add Doctor</div>
       </div>
-      <form class="registration-form" id="registrationForm" action="#" method="POST">
+      <form class="registration-form" id="registrationForm" action="{{ route('admin.admin/doctor.store') }}" method="POST">
+      @csrf
+
+        <input type="hidden" name="role_id" value="1">
         <input type="text" name="name" placeholder="Name" required><br>
         <input type="email" name="email" placeholder="Email" required><br>
+        <input type="text" name="mobile" placeholder="Phone Number" required><br>
         <input type="password" name="password" placeholder="Password" required><br>
+        <p>Type of Doctor</p>
+        <input type="checkbox" name="specialist[]" id="dental" value="Dental"><label for="dental">Dental</label><br>
+        <input type="checkbox" name="specialist[]" id="annual" value="Annual"><label for="annual">Annual</label><br>
         <button type="submit">Create Profile</button>
       </form>
     </div>

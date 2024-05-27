@@ -13,14 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('clinic_appointment', function (Blueprint $table) {
+        Schema::create('user_appointment', function (Blueprint $table) {
             $table->id();
             $table->string('time')->unique();
             $table->timestamp('date')->nullable();
             $table->string('type_of_appointment');
             $table->string('message');
-            $table->unsignedBigInteger('schedule_id');
-            $table->foreign('schedule_id')->reference('id')->on('schedule');
+            $table->unsignedBigInteger('doctor_id'); // Added foreign key for doctor
+            $table->unsignedBigInteger('admin_id'); // Added foreign key for admin
+            $table->foreign('doctor_id')->references('id')->on('doctors'); // Foreign key constraint for doctor
+            $table->foreign('admin_id')->references('id')->on('admins'); // Foreign key constraint for admin
             $table->rememberToken();
             $table->timestamps();
         });
@@ -33,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('user_appointment');
     }
 };

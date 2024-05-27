@@ -35,8 +35,8 @@
       <label for="dental-checkup" class="option-text">Dental Check-Up</label><br>
       <input type="checkbox" id="annual-checkup" class="option-label">
       <label for="annual-checkup" class="option-text">Annual Check-Up</label><br>
-      <input type="checkbox" id="annual-checkup" class="option-label">
-      <label for="annual-checkup" class="option-text">Others</label>
+      <input type="checkbox" id="others" class="option-label">
+      <label for="others" class="option-text">Others</label>
 </div><br>
 
 <div class="symptoms">

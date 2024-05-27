@@ -4,11 +4,17 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Middleware\UserLogin;
+use App\Http\Middleware\LogInAuth;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
-class LogInController extends Controller
-{   
+class LoginController extends Controller
+{
+    public function __construct()
+    {
+        // Apply 'guest' middleware to the show and login methods, and 'auth' middleware to logout
+        $this->middleware('guest')->except('logout');
+    }
 
     public function show()
     {
@@ -17,26 +23,27 @@ class LogInController extends Controller
 
     public function login(Request $request)
     {
+        $incomingFields = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required']
+        ]);
 
-        $credentials = $request->only('email', 'password');
-
-        if (Auth::attempt($credentials)) {
-            // Authentication passed...
-            return redirect()->route('dashboard'); // Redirect to the dashboard after successful login
+        if (Auth::attempt($incomingFields)) {
+            $request->session()->regenerate();
+            return redirect()->intended('/dashboard');
         }
 
-        $email = $request->input('email');
-        $password = $request->input('password');
-
-        // Authentication failed...
         return back()->withErrors([
             'email' => 'The provided credentials do not match our records.',
-        ])->withInput($request->only('email'));
+        ]);
     }
 
     public function logout(Request $request)
     {
         Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
         return redirect('/login');
     }
 }
