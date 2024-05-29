@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="admin_css/dashboard.css">
+    <link rel="stylesheet" href="css/admin/dashboard.css">
 </head>
 <body>
     <div class="navbar_top">
@@ -14,12 +14,13 @@
     <div class="container">
     <div class="container_left">
     <div class="btn">
-            <button type="button" onclick="location.href='admin_dashboard'">Dasboard</button><br>
+            <button type="button" onclick="location.href='administrator'">Dasboard</button><br>
             <button type="button" onclick="location.href='admin_appointment'">Appointment</button><br>
             <button type="button" onclick="location.href='admin_schedule'">Schedule</button><br>
             <button type="button" onclick="location.href='admin_doctor'">Doctors</button><br>
             <button type="button" onclick="location.href='admin_history'">Patients History</button><br>
-            <form action="admin_login">
+            <form action="/logout" method="POST">
+            @csrf
                 <button type="submit">Logout</button>
             </form>
     </div>

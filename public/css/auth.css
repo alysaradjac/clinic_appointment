@@ -1,0 +1,195 @@
+/* Login CSS */
+
+.container {
+  justify-content: center;
+  align-items: center;
+}
+
+.login-form {
+  display: flex;
+  justify-content: space-between;
+  width: 65rem;
+}
+
+#logo {
+  height: 300px;
+}
+
+.logo1 {
+  margin-top: -27px;
+}
+
+.logo2 {
+  margin-top: 40px;
+}
+
+#forgot-password {
+  color: maroon;
+  text-decoration: none;
+  margin: 0 0 50px 230px;
+}
+
+.login {
+  display: flex;
+  justify-content: center;
+}
+
+#register-txt {
+  margin-top: 50px;
+  text-align: center;
+}
+
+#login-btn {
+  text-decoration: none;
+  color: maroon;
+}
+
+/* Registration CSS */
+
+.registration-form {
+  display: flex;
+  justify-content: space-between;
+  width: 65rem;
+}
+
+.register {
+  display: flex;
+  justify-content: center;
+}
+
+#login-txt {
+  margin-top: 40px;
+  text-align: center;
+}
+
+#register-btn {
+  text-decoration: none;
+  color: maroon;
+}
+
+@media only screen and (max-width: 600px) {
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 1rem;
+  }
+
+  .registration-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+    width: 1rem;
+    height: 1rem;
+  }
+
+  #logo {
+    height: 250px;
+  }
+
+  .logo {
+    margin: 0;
+  }
+}
+
+/* Profile Setup CSS */
+
+.info {
+  text-align: center;
+  margin-top: 80px;
+}
+
+.profile-picture {
+  position: relative;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.form-setup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#avatar {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  border: 1px solid maroon;
+}
+
+#pfp {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+
+#fileInput {
+  display: none;
+}
+
+.camera-icon-bg {
+  width: 40px;
+  height: 40px;
+  background-color: maroon;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.cam {
+  color: white;
+  font-size: 20px;
+  margin: 10px;
+}
+
+.upload-txt {
+  font-size: 35px;
+  font-weight: 500;
+  color: maroon;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.option {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 40px;
+}
+
+input[type="radio"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 2px solid gray;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+}
+
+input[type="radio"]:checked {
+  background-color: maroon;
+}
+
+.note {
+  color: #a9a9a9;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.submit-btn {
+  display: flex;
+  justify-content: center;
+}
+
+/* Icons */
+
+i {
+  color: maroon;
+  font-size: 20px;
+  margin: 24px 8px 0 0;
+  cursor: pointer;
+}

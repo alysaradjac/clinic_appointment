@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="admin_css/admin_appointment.css">
+    <link rel="stylesheet" href="css/admin/admin_appointment.css">
 </head>
 <body>
     <div class="navbar_top">
@@ -19,8 +19,9 @@
             <button type="button" onclick="location.href='admin_schedule'">Schedule</button><br>
             <button type="button" onclick="location.href='admin_doctor'">Doctors</button><br>
             <button type="button" onclick="location.href='admin_history'">Patients History</button><br>
-            <form action="admin_login">
-                <button type="submit">Logout</button>
+            <form action="/logout" method="POST">
+            @csrf
+             <button type="submit">Logout</button>
             </form>
     </div>
     </div>

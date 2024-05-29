@@ -1,147 +1,58 @@
 <?php
 
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\UserController;
+use App\Http\Middleware\EnsureUserHasRole;
+use App\Http\Middleware\CheckUserHasRole;
+use App\Http\Middleware\AdminLogout;
+use App\Http\Middleware\PreventRegister;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Controller;
-use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\Auth\LogInController;
-use App\Models\User;
-use App\Http\Middleware\UserLogin;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\AdminAuth\AddDoctorController;
-use App\Http\Middleware\AdminMiddleware;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+Route::get('/', [LoginController::class, 'index'])->middleware([EnsureUserHasRole::class, AdminLogout::class]);
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::post('/login', [UserController::class, 'login']);
 
+Route::post('/logout', [UserController::class, 'logout']);
 
+Route::get('/setup', function () {
+    return view('setup');
+})->middleware(CheckUserHasRole::class);
 
+Route::post('/setup', [UserController::class, 'setup']);
 
-Route::post('/login', [LogInController::class, 'login']);
-Route::get('/login', [LoginController::class, 'show'])->name('login');
-Route::post('logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('/register', function () {
+    return view('register');
+})->middleware(PreventRegister::class);
 
-Route::get('/register', [RegisterController::class, 'index'])->name('register');
-Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
+Route::post('/register', [UserController::class, 'register']);
 
-
-Route::middleware([UserLogin::class])->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'index']);
+Route::middleware(['logged-in'])->group(function () {
+    Route::middleware(['user'])->group(function () {
+            Route::get('/appointment', function () {
+                return view('user.appointment');
+            });
+            Route::get('/appointment_form', function () {
+                return view('user.appointment_form');
+            });
+            Route::get('/personnel', function () {
+                return view('user.personnel');
+            });
+            
+        });
+       
+        
     
-    Route::get('/personnel', function () {
-        return view('dashboard.personnel');
-    });
 
-    Route::get('/appointment', function () {
-        return view('dashboard.appointment');
-    });
-
-    Route::get('/appointment/form', function () {
-        return view('dashboard.appointment_form');
-    });
-
-    Route::get('/profile', function () {
-        return view('dashboard.student_profile');
-    });
-});
-
-
-//Doctors routes
-
-Route::get('/doctor_login', function () {
-    return view('doctor.doctor_admin');
-});
-
-Route::get('/doctor_dashboard', function () {
-    return view('doctor.doctor_dashboard');
-});
-
-Route::get('/doctor_appointment', function () {
-    return view('doctor.doctor_appointment');
-});
-
-Route::get('/doctor_patient', function () {
-    return view('doctor.doctor_patient');
-});
-
-Route::get('/doctor_history', function () {
-    return view('doctor.doctor_history');
-});
-
-Route::get('/student_profile', function () {
-    return view('doctor.student_profile');
-});
-
-Route::get('/remarks_form', function () {
-    return view('doctor.remarks_form');
-});
-
-Route::get('/remarks', function () {
-    return view('doctor.remarks');
-});
-
-Route::get('/doctor_appointment', function () {
-    return view('doctor.appointment');
-});
-
-Route::get('/doctor_sched', function () {
-    return view('doctor.doctor_form');
-});
-
-
-//Admin
-Route::get('/admin_login', function () {
-    return view('admin.admin_login');
-});
-
-Route::middleware(['admin'])->group(function () {
-    Route::get('/admin_dashboard', function () {
-        return view('admin.admin_dashboard');
-    });
+    Route::middleware(['admin'])->group(function () {
+        Route::get('/administrator', function () {
+            return view('admin.admin');
+        });
         Route::get('/admin_appointment', function () {
             return view('admin.admin_appointment');
         });
-
-        Route::get('/admin_patient', function () {
-            return view('admin.admin_patient');
+        Route::get('/admin_schedule', function () {
+            return view('admin.admin_schedule');
         });
-
-        Route::get('/admin_history', function () {
-            return view('admin.admin_history');
-        });
-
-        // Route::get('/admin_schedule', function () {
-        //     return view('admin.admin_schedule');
-        // });
-
-        // Route::get('/admin_sched', function () {
-        //     return view('admin.admin_form');
-        // });
-
-        Route::get('/admin_view', function () {
-            return view('admin.admin_view');
-        });
-
     });
+});
 
-    Route::get('/admin_schedule', function () {
-        return view('admin.admin_schedule');
-    });
-
-    Route::get('/admin_sched', function () {
-        return view('admin.admin_form');
-    });
-
-    Route::get('/admin/doctor', [AddDoctorController::class, 'index'])->name('admin/docor');
-    Route::post('admin/doctor/store', [AddDoctorController::class, 'store'])->name('admin.admin_doctor.store');

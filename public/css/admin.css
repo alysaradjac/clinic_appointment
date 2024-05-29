@@ -1,0 +1,831 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+body{
+  overflow: hidden;
+}
+/* Navigation Bar CSS */
+
+.admin-navbar {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  width: 220px;
+  height: 100vh;
+  padding: 0 25px 0 25px;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+#logo {
+  width: 250px;
+  margin-top: 30px;
+}
+
+.icon-bar a {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  padding: 12px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+}
+
+.icon-bar a:hover {
+  background-color: maroon;
+  color: white;
+  border-radius: 10px;
+}
+
+#logout {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.nav-btns {
+  margin-top: 24px;
+}
+
+#nav-txt {
+  margin-left: 10px;
+  font-weight: 100;
+  font-family: "Montserrat";
+}
+
+.copyright {
+  margin-top: 7em;
+  text-align: center;
+}
+
+/* Content */
+
+.content {
+  margin: 2rem 0 0 5rem;
+  width: 70rem;
+  height: 40rem;
+}
+
+/* Dashboard */
+
+.row1 {
+  display: flex;
+  height: 135px;
+  margin: 2rem 0 0 0;
+}
+
+.box1 {
+  background-color: white;
+  height: 7rem;
+  width: 15rem;
+  border-radius: 10px;
+  box-shadow: 1px 1px 4px #888888;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.box2 {
+  background-color: white;
+  height: 7rem;
+  width: 15rem;
+  border-radius: 10px;
+  box-shadow: 1px 1px 4px #888888;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 20px;
+  padding: 10px;
+}
+
+.box3 {
+  background-color: white;
+  height: 7rem;
+  width: 15rem;
+  border-radius: 10px;
+  box-shadow: 1px 1px 4px #888888;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 20px;
+  padding: 10px;
+}
+
+.box4 {
+  background-color: white;
+  height: 7rem;
+  width: 15rem;
+  border-radius: 10px;
+  box-shadow: 1px 1px 4px #888888;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 20px;
+  padding: 10px;
+}
+
+.box-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#box-icon {
+  height: 5rem;
+  margin-left: 30px;
+}
+
+.sales-txt {
+  height: 5rem;
+  width: 8rem;
+  padding: 5px;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+h3 {
+  font-size: 25px;
+  font-weight: bolder;
+  font-family: "Montserrat";
+}
+
+.total-completed {
+  margin-top: 10px;
+}
+
+#days {
+  font-size: 10px;
+  opacity: 0.5;
+  text-align: center;
+  margin-left: 4px;
+}
+
+#arrow-icon {
+  height: 14px;
+}
+
+.percentage-days {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+/* Product List */
+
+.add-header {
+  width: 60rem;
+  margin: 5rem 0 0 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.add-product-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  color: black;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 4px #888888;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#add-txt {
+  margin-left: 15px;
+  font-size: 18px;
+  font-family: "Montserrat";
+}
+
+#add-btn {
+  font-size: 25px;
+}
+
+#search {
+  padding: 6px;
+  font-size: 17px;
+  border: none;
+  border-radius: 6px 0 0 6px;
+}
+
+.search-container .search-button {
+  float: right;
+  padding: 6px 10px;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.search-button {
+  background-color: maroon;
+  color: white;
+  border-radius: 0 6px 6px 0;
+}
+
+.search-container .search-button:hover {
+  background: red;
+  color: white;
+}
+
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 30px 60px;
+  overflow-y: auto;
+  max-height: 70vh;
+}
+
+.product {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  margin: 11.25px;
+  position: relative; 
+  
+}
+
+#product-img {
+  width: 222px;
+  height: 222px;
+  border-radius: 10px;
+}
+
+.label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  width: 203px;
+  height: auto;
+  bottom: 0;
+  margin-top: 100px;
+  border-radius: 0 0 10px 10px;
+  background: linear-gradient(to bottom, rgba(128, 0, 0, 0.80), rgba(128, 0, 0, 0.581));
+  color: white;
+  padding: 5px 10px;
+  overflow: hidden;
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+.label h3 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.icon-container {
+  display: flex;
+  gap: 10px;
+  font-size: 32px;
+  color: maroon;
+}
+
+.tabler-edit {           
+  background-color: #fff;
+  border-radius: 5px;
+  font-family: "Montserrat";
+  cursor: pointer;
+}
+
+.trash-outline {       
+  background-color: #fff;
+  border-radius: 5px;
+  font-family: "Montserrat";
+  cursor: pointer;
+}
+
+/* Add Product Modal CSS*/
+
+.modal_product-list {
+  display: flex;
+  width: 700px;
+  height: 40vh;
+  position: fixed;
+  top: 54%;
+  left: 59%;
+  transform: translate(-50%, -50%);
+  padding: 2.4rem 2rem 2rem;
+  background: #fff;
+  box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+  border-radius: 10px;
+}
+
+.modal_product-list.active {
+  display: flex;
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal-container {
+  display: flex;
+  justify-content: center;
+}
+
+.modal-icon {
+  position: relative;
+  top: 20px;
+}
+
+.img-box-fill {
+  width: 260px;
+  height: 260px;
+  font-size: 260px;
+  background-color: rgb(216, 215, 215);
+  box-shadow: inset 0 1px 10px 0 rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  margin-left: 20px;
+}
+
+#img-box-fill {
+  width: 260px;
+  height: 260px;
+}
+
+.add-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  background-color: maroon;
+  width: 70px;
+  height: 70px;
+  top: 45%;
+  left: 54%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+#add-icon {    
+  font-size: 46px;
+  color:white;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  margin-left: 120px;
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
+}
+
+.product-name,
+.product-price,
+.product-time {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  width: 122%;
+}
+
+.product-categories {
+  margin: 10px 14px 0 10px;
+  width: 100%;
+}
+
+.product-name label,
+.product-price label,
+.product-time label {
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+#select-category {
+  font-size: 14px;
+}
+
+#product-name,
+#product-price,
+#product-time {
+  height: 35px; 
+  border: none;
+  border-bottom: 2px solid maroon;
+  border-radius: 0;
+  padding-left: 4px;
+  flex-grow: 2;
+  color: maroon;
+  font-size: 16px; 
+}
+
+#product-categories {
+  height: 25px;
+  border-radius: 4px;
+  cursor: pointer;
+  flex-grow: 2;
+  font-size: 12px;
+}
+
+#product-name:focus,
+#product-price:focus,
+#product-time:focus {
+  outline: none;
+}
+
+#product-name::placeholder,
+#product-price::placeholder,
+#product-time::placeholder {
+  color: maroon;
+}
+
+#product-categories option {
+  color: maroon;
+}
+
+#product-name::placeholder,
+#product-price::placeholder,
+#product-time::placeholder {
+  color: maroon;
+  text-align: center;
+}
+
+.modal-btn {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  margin-top: 10px;
+}
+
+#save {
+  background-color: maroon;
+  color: white;
+  padding: 13px 50px 13px 50px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: "Montserrat";
+}
+
+#close {
+  position: absolute;
+  top: 0;
+  margin: 14px 0 0 30px;
+  background-color: white;
+  color: maroon;
+  font-size: 34px;
+  cursor: pointer;
+  font-family: "Montserrat";
+}
+
+.save-btn {
+  margin: 20px 74px 0 0;
+}
+
+/* Edit Product Modal CSS */
+
+.modal_edit-list {
+  display: flex;
+  width: 700px;
+  height: 40vh;
+  position: fixed;
+  top: 54%;
+  left: 59%;
+  transform: translate(-50%, -50%);
+  padding: 2.4rem 2rem 2rem;
+  background: #fff;
+  box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+  border-radius: 10px;
+}
+
+.modal_edit-list.active {
+  display: flex;
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* QR Scanner Modal CSS */
+
+.modal_qr-scanner {
+  display: flex;
+  width: 700px;
+  height: 40vh;
+  position: fixed;
+  top: 54%;
+  left: 59%;
+  transform: translate(-50%, -50%);
+  padding: 2.4rem 2rem 2rem;
+  background: #fff;
+  box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+  border-radius: 10px;
+}
+
+.modal_qr-scanner.active {
+  display: flex;
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* Order Details Modal CSS */
+
+.modal_orders-list {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  height: 70vh;
+  position: fixed;
+  top: 54%;
+  left: 59%;
+  transform: translate(-50%, -50%);
+  padding: 2.4rem 2rem 2rem;
+  background: #fff;
+  box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+  border-radius: 10px;
+}
+
+.modal_orders-list.active {
+  display: flex;
+  opacity: 1;
+  pointer-events: all;
+}
+
+.order-transaction-details {
+  border-bottom: 1px solid black;
+  padding-bottom: 2px;
+}
+
+.orders-date-payment {
+  display: flex;
+}
+
+.orders-transaction-date {
+  display: flex;
+  flex-direction: column;
+}
+
+.orders-transaction-payment {
+  display: flex;
+  flex-direction: column;
+}
+
+.close-modal4 {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Transaction Details Modal CSS */
+
+.modal_transactions-history {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  height: 70vh;
+  position: fixed;
+  top: 54%;
+  left: 59%;
+  transform: translate(-50%, -50%);
+  padding: 2.4rem 2rem 2rem;
+  background: #fff;
+  box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+  border-radius: 10px;
+}
+
+.modal_transactions-history.active {
+  display: flex;
+  opacity: 1;
+  pointer-events: all;
+}
+
+.transactions-details {
+  border-bottom: 1px solid black;
+  padding-bottom: 2px;
+}
+
+.transactions-date-payment {
+  display: flex;
+}
+
+.transactions-date {
+  display: flex;
+  flex-direction: column;
+}
+
+.transactions-payment {
+  display: flex;
+  flex-direction: column;
+}
+
+.close-modal5 {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Order-List CSS */
+
+.qr-btn {
+  display: flex;
+  align-items: center;
+  padding: 2px 16px 2px 2px;
+  background-color: white;
+  box-shadow: 1px 1px 4px #888888;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#qr-code-scanner {
+  font-size: 32px;
+  margin-right: 16px;
+}
+
+.add-header-orders {
+  width: 60rem;
+  margin: 5rem 0 0 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-container-orders {
+  display: flex;
+  justify-content: flex-end;
+  margin-left: auto;
+}
+
+#search {
+  padding: 6px;
+  font-size: 17px;
+  border: none;
+  border-radius: 6px 0 0 6px;
+  box-shadow: 1px 1px 4px #888888;
+}
+
+.search-container-orders .search-button-orders {
+  float: right;
+  padding: 6px 10px;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.search-button-orders {
+  background-color: maroon;
+  color: white;
+  border-radius: 0 6px 6px 0;
+  box-shadow: 1px 1px 4px #888888;
+}
+
+.search-container-orders .search-button-orders:hover {
+  background: red;
+  color: white;
+}
+
+.transcation-container {
+  width: 100%;
+  height: 90px;
+  background-color: white;
+  box-shadow: 1px 1px 4px #888888;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 20px;
+  margin-top: 30px;
+}
+
+.orders-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2px 30px 0 60px;
+  font-weight: bold;
+}
+
+.orders-detail {
+  position: absolute;
+  margin: 7px 0 0 22px;
+  color: red;
+  font-size: 20px;
+}
+
+#orders-header {
+  position: absolute;
+  transform: translateY(-160%);
+  font-size: 12px;
+  opacity: 0.55;
+}
+
+#orders-details {
+  background-color: maroon;
+  color: white;
+  padding: 6px 26px 8px 26px;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+/* Transaction History CSS */
+
+.add-header-transaction {
+  width: 60rem;
+  margin: 5rem 0 0 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-container-transaction {
+  display: flex;
+  justify-content: flex-end;
+  margin-left: auto;
+}
+
+#search {
+  padding: 6px;
+  font-size: 17px;
+  border: none;
+  border-radius: 6px 0 0 6px;
+  box-shadow: 1px 1px 4px #888888;
+}
+
+.search-container-transaction .search-button-transaction {
+  float: right;
+  padding: 6px 10px;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.search-button-transaction {
+  background-color: maroon;
+  color: white;
+  border-radius: 0 6px 6px 0;
+  box-shadow: 1px 1px 4px #888888;
+}
+
+.search-container-transaction .search-button-transaction:hover {
+  background: red;
+  color: white;
+}
+
+.transcation-container {
+  width: 100%;
+  height: 90px;
+  background-color: white;
+  box-shadow: 1px 1px 4px #888888;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 20px;
+  margin-top: 30px;
+}
+
+.transaction-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2px 30px 0 60px;
+  font-weight: bold;
+}
+
+.transaction-detail {
+  position: absolute;
+  margin: 7px 0 0 22px;
+  color: green;
+  font-size: 20px;
+}
+
+#transaction-header {
+  position: absolute;
+  transform: translateY(-160%);
+  font-size: 12px;
+  opacity: 0.55;
+}
+
+#transaction-details {
+  background-color: maroon;
+  color: white;
+  padding: 6px 26px 8px 26px;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+}
