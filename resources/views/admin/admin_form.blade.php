@@ -37,63 +37,11 @@
       <label for="fname">Date:</label><br>
       <input type="date" id="date" name="date"class="date-time"><br><br>
 
-      <h3>Type of Specialist:</h3>
-      <input type="radio" name="doctor_type" id="dental" value="Dental" onclick="setRoleId('dental')">
-      <label for="dental">Dental</label><br>
+      <label for="lname">Start Time:</label><br>
+      <input type="time" id="starttime" name="starttime" class="date-time"><br><br>
 
-      <input type="radio" name="doctor_type" id="annual" value="Annual" onclick="setRoleId('annual')">
-      <label for="annual">Annual</label><br>
-
-      <label for="lname">Select Time Availability:</label><br>
-      <input type="checkbox" id="time_select" name="time_select[]" value="8:00 - 9:00 A.M.">
-      <label for="time_select">8:00 - 9:00 A.M.</label> &nbsp; &nbsp;
-
-      <input type="checkbox" id="not_available" name="not_available[]" value="Not Available">
-      <label for="not_available">Not Available</label>
-      <br>
-
-      <input type="checkbox" id="time_select" name="time_select[]" value="9:00 - 10:00 A.M.">
-      <label for="time_select">9:00 - 10:00 A.M.</label> &nbsp;
-
-      <input type="checkbox" id="not_available" name="not_available[]" value="Not Available">
-      <label for="not_available">Not Available</label>
-      <br>
-
-      <input type="checkbox" id="time_select" name="time_select[]" value="10:00 - 11:00 A.M.">
-      <label for="time_select">10:00 - 11:00 A.M.</label>
-
-      <input type="checkbox" id="not_available" name="not_available[]" value="Not Available">
-      <label for="not_available">Not Available</label>
-      <br>
-
-      <input type="checkbox" id="time_select" name="time_select[]" value="1:30 - 2:30 P.M.">
-      <label for="time_select">1:30 - 2:30 P.M.</label> &nbsp; &nbsp; &nbsp;
-
-      <input type="checkbox" id="not_available" name="not_available[]" value="Not Available">
-      <label for="not_available">Not Available</label>
-      <br>
-
-      <input type="checkbox" id="time_select" name="time_select[]" value="2:30 - 3:30 P.M.">
-      <label for="time_select">2:30 - 3:30 P.M.</label> &nbsp; &nbsp; &nbsp; 
-
-      <input type="checkbox" id="not_available" name="not_available[]" value="Not Available">
-      <label for="not_available">Not Available</label>
-      <br>
-
-      <input type="checkbox" id="time_select" name="time_select[]" value="3:30 - 4:30 P.M.">
-      <label for="time_select">1:30 - 2:30 P.M.</label> &nbsp; &nbsp; &nbsp; 
-
-      <input type="checkbox" id="not_available" name="not_available[]" value="Not Available">
-      <label for="not_available">Not Available</label>
-      <br>
-
-      <input type="checkbox" id="time_select" name="time_select[]" value="4:30 - 5:30 P.M.">
-      <label for="time_select">4:30 - 5:30 P.M.</label> &nbsp; &nbsp; &nbsp; 
-
-      <input type="checkbox" id="not_available" name="not_available[]" value="Not Available">
-      <label for="not_available">Not Available</label>
-      <br>
-
+      <label for="lname">End Time:</label><br>
+      <input type="time" id="endtime" name="endtime" class="date-time"><br><br>
 
      <button type="submit" class="button">Done</button>
 

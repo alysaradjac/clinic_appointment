@@ -22,13 +22,14 @@
 </div>
 
 <div class="calendar">
-<div class="calendar-header">
+    <div class="calendar-header">
+        <button id="prevYear">&lt;&lt;</button>
         <button id="prevMonth">&lt;</button>
-        <h2>January 2024</h2>
+        <h2 id="calendarTitle">January 2024</h2>
         <button id="nextMonth">&gt;</button>
-</div>
-<div class="calendar-body">
-        <!-- Days will be added dynamically here -->
+        <button id="nextYear">&gt;&gt;</button>
+    </div>
+    <div class="calendar-body">
         <div class="calendar-cell">Sun</div>
         <div class="calendar-cell">Mon</div>
         <div class="calendar-cell">Tue</div>
@@ -36,8 +37,7 @@
         <div class="calendar-cell">Thu</div>
         <div class="calendar-cell">Fri</div>
         <div class="calendar-cell">Sat</div>
-        <!-- End of Days -->
-</div>
+    </div>
 </div>
 
 <!-- Modal Structure -->

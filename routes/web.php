@@ -7,10 +7,6 @@ use App\Http\Controllers\Auth\LogInController;
 use App\Models\User;
 use App\Models\DoctorSchedule;
 use App\Http\Middleware\UserLogin;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\AddDoctorController;
-use App\Http\Controllers\DoctorScheduleController;
-use App\Http\Middleware\AdminMiddleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,33 +41,16 @@ Route::middleware([UserLogin::class])->group(function () {
         return view('dashboard.personnel');
     });
 
-    // Route::get('/appointment', function () {
-    //     return view('dashboard.appointment');
-    // });
-
-    // Route::get('/appointment/form', function () {
-    //     return view('dashboard.appointment_form');
-    // });
-
-    Route::get('/profile', function () {
-        return view('dashboard.student_profile');
-    });
-});
-
-Route::get('appointment', function () {
+Route::get('/appointment', function () {
     return view('dashboard.appointment');
 });
 
-Route::get('/appointment/form', function () {
+Route::get('/appointment_form', function () {
     return view('dashboard.appointment_form');
 });
 
-Route::get('/appointment/form1', function () {
-    return view('dashboard.appoint_form1');
-});
-
-Route::get('/appointment/annual-form', function () {
-    return view('dashboard.annual_form');
+Route::get('/profile', function () {
+    return view('dashboard.student_profile');
 });
 
 //Doctors routes
@@ -146,18 +125,18 @@ Route::middleware(['admin'])->group(function () {
         //     return view('admin.admin_form');
         // });
 
-        Route::get('/admin_view', function () {
-            return view('admin.admin_view');
-        });
+Route::get('/admin_view', function () {
+    return view('admin.admin_view');
+});
 
-    });
+Route::get('/admin_schedule', function () {
+    return view('admin.admin_schedule');
+});
 
-    Route::get('/doctor_schedule', function () {
-        return view('admin.admin_schedule');
-    });
+Route::get('/admin_doctor', function () {
+    return view('admin.admin_doctor');
+});
 
-    Route::post('admin/schedule', [DoctorScheduleController::class, 'store'])->name('admin_schedule.store');
-    Route::get('/doctor/schedule/form', [DoctorScheduleController::class, 'index'])->name('admin_schedule.index');
-
-    Route::get('/admin/doctors', [AddDoctorController::class, 'index'])->name('admin_doctor');
-    Route::post('admin_doctor', [AddDoctorController::class, 'store'])->name('admin_doctor.store');
+Route::get('/admin_sched', function () {
+    return view('admin.admin_form');
+});

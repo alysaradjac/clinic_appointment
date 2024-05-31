@@ -52,6 +52,7 @@
         <input type="hidden" name="role_id" value="1">
         <input type="text" name="name" placeholder="Name" required><br>
         <input type="email" name="email" placeholder="Email" required><br>
+        <input type="text" name="mobile" placeholder="Phone Number" required><br>
         <input type="password" name="password" placeholder="Password" required><br>
         <p>Type of Doctor</p>
         <input type="checkbox" name="specialist[]" id="dental" value="Dental"><label for="dental">Dental</label><br>

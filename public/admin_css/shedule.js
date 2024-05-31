@@ -1,7 +1,10 @@
+const prevYearBtn = document.getElementById("prevYear");
+const nextYearBtn = document.getElementById("nextYear");
 const prevMonthBtn = document.getElementById("prevMonth");
 const nextMonthBtn = document.getElementById("nextMonth");
-const calendarHeader = document.querySelector(".calendar-header h2");
+const calendarTitle = document.getElementById("calendarTitle");
 const calendarBody = document.querySelector(".calendar-body");
+
 // Initial month and year
 let currentMonth = 0; // January
 let currentYear = 2024; // Initial year
@@ -65,14 +68,35 @@ function updateCalendar(monthIndex, year) {
         calendarBody.appendChild(cell);
     }
 }
-// Event listeners for previous and next buttons
+
+// Event listeners for navigation buttons
+prevYearBtn.addEventListener("click", () => {
+    currentYear--;
+    updateCalendar(currentMonth, currentYear);
+});
+
+nextYearBtn.addEventListener("click", () => {
+    currentYear++;
+    updateCalendar(currentMonth, currentYear);
+});
+
 prevMonthBtn.addEventListener("click", () => {
-  currentMonth = (currentMonth - 1 + months.length) % months.length;
-  updateCalendar(currentMonth);
+    currentMonth--;
+    if (currentMonth < 0) {
+        currentMonth = 11;
+        currentYear--;
+    }
+    updateCalendar(currentMonth, currentYear);
 });
+
 nextMonthBtn.addEventListener("click", () => {
-  currentMonth = (currentMonth + 1) % months.length;
-  updateCalendar(currentMonth);
+    currentMonth++;
+    if (currentMonth > 11) {
+        currentMonth = 0;
+        currentYear++;
+    }
+    updateCalendar(currentMonth, currentYear);
 });
+
 // Initial calendar setup
-updateCalendar(currentMonth);
+updateCalendar(currentMonth, currentYear);
