@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <link rel="stylesheet" href="admin_css/dashboard.css">
+<link rel="stylesheet" href="{{ asset('admin_css/dashboard.css') }}">
 </head>
 <body>
     <div class="navbar_top">
@@ -17,11 +17,11 @@
     <div class="btn">
             <button type="button" onclick="location.href='admin_dashboard'">Dasboard</button><br>
             <button type="button" onclick="location.href='admin_appointment'">Appointment</button><br>
-            <button type="button" onclick="location.href='admin_schedule'">Schedule</button><br>
-            <button type="button" onclick="location.href='admin_doctor'">Doctors</button><br>
+            <button type="button" onclick="location.href='/doctor_schedule'">Schedule</button><br>
+            <button type="button" onclick="location.href='/admin/doctors'">Doctors</button><br>
             <button type="button" onclick="location.href='admin_history'">Patients History</button><br>
             <form action="admin_login">
-                <button type="submit">Logout</button>
+                <button type="submit" style="line-height:10;">Logout</button>
             </form>
     </div>
     </div>
@@ -46,16 +46,32 @@
         </svg>
         <div>Add Doctor</div>
       </div>
-      <form class="registration-form" id="registrationForm" action="#" method="POST">
+      <form class="registration-form" id="registrationForm" action="{{ route('admin.admin/doctor.store') }}" method="POST">
+      @csrf
+
+        <input type="hidden" name="role_id" value="1">
         <input type="text" name="name" placeholder="Name" required><br>
         <input type="email" name="email" placeholder="Email" required><br>
         <input type="password" name="password" placeholder="Password" required><br>
+        <p>Type of Doctor</p>
+        <input type="checkbox" name="specialist[]" id="dental" value="Dental"><label for="dental">Dental</label><br>
+        <input type="checkbox" name="specialist[]" id="annual" value="Annual"><label for="annual">Annual</label><br>
         <button type="submit">Create Profile</button>
       </form>
     </div>
   </div>
 
   <script>
+
+            function setRoleId(specialist) {
+            var roleIdInput = document.getElementById('roleId');
+            if (specialist === 'dental') {
+                roleIdInput.value = 1; // Set the role id for Dental
+            } else if (specialist === 'annual') {
+                roleIdInput.value = 2; // Set the role id for Annual
+            }
+        }
+
     document.getElementById('addProfileButton').addEventListener('click', function () {
       var registrationForm = document.getElementById('registrationForm');
       if (registrationForm.style.display === 'none') {

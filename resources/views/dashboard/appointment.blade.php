@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Apply Appointment</title>
-<link rel="stylesheet" href="user_css/appointment.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply Appointment</title>
+    <link rel="stylesheet" href="user_css/appointment.css">
 </head>
 <body>
-
-<div class="navbar_top">
+    <div class="navbar_top">
         <image src="https://i.ibb.co/ggN6S8v/image-2.png"></image>
 
         <a href="/dashboard">Home</a>
@@ -41,7 +40,16 @@
 </div>
 </div>
 
+<!-- Modal Structure -->
+<div id="appointmentModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <div id="dentalDate"></div>
+        <div id="annualDate"></div>
+    </div>
+</div>
+
 <script src="user_css/shedule.js"></script>
-    
+
 </body>
 </html>

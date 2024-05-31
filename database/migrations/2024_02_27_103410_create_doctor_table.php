@@ -16,11 +16,11 @@ return new class extends Migration
         Schema::create('doctor', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('specialist');
             $table->integer('mobile');
-            $table->integer('email');
-            $table->string('username');
+            $table->integer('email'); // Consider changing this to string if email addresses are stored
             $table->string('password');
+            $table->json('specialist')->nullable()->default(json_encode([]));
+            $table->unsignedBigInteger('role_id')->default(1); // Assign a default role ID or manage programmatically
             $table->timestamps();
         });
     }

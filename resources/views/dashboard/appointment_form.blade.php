@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <title>Dashboard</title>
-    <link rel="stylesheet" href="user_css/appointment_form.css">
+    <link rel="stylesheet" href="{{ asset('user_css/appointment_form.css') }}">
 </head>
 <body>
 
@@ -10,7 +10,7 @@
         <image src="https://i.ibb.co/ggN6S8v/image-2.png" class="imglogo"></image>
         <a href="/dashboard">Home</a>
         <a href="/personnel">Personnel</a>
-        <a href="appointment">Appointment</a>
+        <a href="/appointment">Appointment</a>
 
         <a href="profile">Profile</a>
 
@@ -29,21 +29,30 @@
       <label for="lname">Last name:</label><br>
       <input type="text" id="lname" name="lname" value=""><br><br>
 
+      <label for="date">Date</label><br>
+      <input type="date" name="date" id="date" required>
+
+      <label for="time">Select Time</label>
+      <select name="time" id="time">
+            <optgroup label="A.M.">
+            <option value="8:00-9:00 A.M.">8:00-9:00 A.M.</option>
+      </select><br><br>
+
 <div class="reason">Reason for Appointment</div><br>
 <div class="reason-option">
-      <input type="checkbox" id="dental-checkup" class="option-label">
+      <input type="radio" id="dental-checkup" name="specialist" value="Dental Check-Up" class="option-label" required>
       <label for="dental-checkup" class="option-text">Dental Check-Up</label><br>
       <input type="checkbox" id="annual-checkup" class="option-label">
       <label for="annual-checkup" class="option-text">Annual Check-Up</label><br>
-      <input type="checkbox" id="annual-checkup" class="option-label">
-      <label for="annual-checkup" class="option-text">Others</label>
+      <input type="checkbox" id="others" class="option-label">
+      <label for="others" class="option-text">Others</label>
 </div><br>
 
 <div class="symptoms">
       Please describe the symptoms or concerns that you would like to discuss during your appointment time.
 </div>
 <div class="symptoms-input"></div><br>
-      <textarea placeholder="Type your other symptoms  here..."></textarea><br>
+      <textarea placeholder="Type your other symptoms  here..." name="symptoms"></textarea><br>
 
      <button type="submit" class="btn">Done</button>
 </div>

@@ -20,7 +20,7 @@
             <button type="button" onclick="location.href='doctor_appointment'" class="btn">Schedule</button><br>
             <button type="button" onclick="location.href='doctor_history'" class="btn">History</button><br>
             <form action="doctor_login">
-                <button type="submit" class="btn">Logout</button>
+                <button type="submit" class="btn" style="line-height:10;">Logout</button>
             </form>
         </td>
     </div>
@@ -28,13 +28,14 @@
 
 <div class="container_right">
 <div class="calendar">
-<div class="calendar-header">
-        <button id="prevMonth">&lt;</button>
-        <h2>January 2024</h2>
-        <button id="nextMonth">&gt;</button>
-</div>
-<div class="calendar-body">
-        <!-- Days will be added dynamically here -->
+    <div class="calendar-header">
+        <button id="prevYear" class="prevyr">&lt;&lt;</button>
+        <button id="prevMonth" class="prevmt">&lt;</button>
+        <span id="calendarTitle">January 2024</span>
+        <button id="nextMonth" class="nextmt">&gt;</button>
+        <button id="nextYear" class="nextyr">&gt;&gt;</button>
+    </div>
+    <div class="calendar-body">
         <div class="calendar-cell">Sun</div>
         <div class="calendar-cell">Mon</div>
         <div class="calendar-cell">Tue</div>
@@ -42,9 +43,7 @@
         <div class="calendar-cell">Thu</div>
         <div class="calendar-cell">Fri</div>
         <div class="calendar-cell">Sat</div>
-        <!-- End of Days -->
-</div>
-</div>
+    </div>
 </div>
 
 <script src="dr_css/shedule.js"></script>

@@ -92,14 +92,14 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 105vh;
 }
 
 .calendar-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  margin: 0 0 0 80px;
+  margin: 0;
   font-family: Georgia, serif;
   font-size: 20px;
 }
@@ -110,6 +110,7 @@ body {
   background: none;
   font-size: 18px;
   color: white;
+  margin: 0 10px;
 }
 
 .calendar-body {
@@ -144,33 +145,37 @@ body {
   z-index: 1;
 }
 
-button{
+button {
   border: none;
-  position: fixed;
   font-size: 30px;
-  font-family: 'Roboto', sans-serif;;
-  margin: 0 0 0 -30px;
+  font-family: 'Roboto', sans-serif;
   cursor: pointer;
   background-color: #632929;
+  margin: 0  0 0;
   color: white;
 }
 
-.btn{
+.btn {
   font-size: 30px;
   line-height: 1.6;
 }
 
-.next{
+.next {
   margin: 0 0 0 260px;
 }
 
 .button {
-  background-color: #632929; /* Blue background */
-  color: white; /* White text */
-  padding: 0 10px; /* Padding */
-  border: none; /* No border */
-  cursor: pointer; /* Cursor changes to a pointer when hovering */
-  display: inline-block; /* Display as inline-block */
- }
+  background-color: #632929;
+  color: white;
+  padding: 0 10px;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.apply {
+  background-color: white;
+  color: #632929;
+}
 
 

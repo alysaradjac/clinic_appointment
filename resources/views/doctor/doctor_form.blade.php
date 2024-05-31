@@ -18,7 +18,7 @@
             <button type="button" onclick="location.href='doctor_appointment'">Schedule</button><br>
             <button type="button" onclick="location.href='doctor_history'">History</button><br>
             <form action="doctor_login">
-                <button type="submit">Logout</button>
+                <button type="submit" style="line-height:10;">Logout</button>
             </form>
     </div>
     </div>
