@@ -35,8 +35,8 @@
 
       <label for="time">Select Time</label>
       <select name="time" id="time">
-            <optgroup label="A.M.">
-            <option value="8:00-9:00 A.M.">8:00-9:00 A.M.</option>
+            <optgroup label="P.M.">
+            <option value="3:30-4:30 A.M.">3:30-4:30 P.M.</option>
       </select><br><br>
 
 <div class="reason">Reason for Appointment</div><br>

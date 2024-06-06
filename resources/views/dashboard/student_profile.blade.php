@@ -29,49 +29,52 @@
   </div>
 
 <div class="item2">
-    <p>Jacklourence Broca</p>
+    <u>Jacklourence Broca</u>
     <p>Name</p>
   <br>
-    <p>jacklourencebroca@gmail.com</p>
+    <u>jacklourencebroca@gmail.com</u>
     <p>Email</p>
    <br>
-    <p>March 19, 2000</p>
+    <u>March 19, 2000</u>
     <p>Birthdate</p>
    <br>
-    <p>0908123456</p>
+    <u>0908123456</u>
     <p>Cotact Number</p>
   <br>
-    <p>Tambacan Iligan City</p>
+    <u>Tambacan Iligan City</u>
     <p>Address</p>
   <br>
-    <p>5' 11" ft</p>
+    <u>5' 11" ft</u>
     <p>Height</p>
     <br>
-    <p>60 kg</p>
+    <u>60 kg</u>
     <p>Weight</p>
   <br>
-    <p>Jill Broca</p>
+  <u>Jill Broca</u>
+  <p>Guardian</p>
+  <br>
+    <u>Jill Broca</u>
     <p>Person to Notify in Case of Emergency</p>
 </div>  
 
 
 <div class="item3">
-    <p>2022-01111</p>
+    <u>2022-01111</u>
     <p>ID NO.</p>
     <br>
-    <p>Male</p>
+    <u>Male</u>
     <p>Sex</p>
   <br>
-    <p>24</p>
+    <u>24</u> 
     <p>Age</p>
   <br>
-    <p>Single</p>
+    <u>Single</u>
     <p>Civil Status</p>
   <br>
-    <p>CSS</p>
+    <u>CSS</u>
     <p>Department</p>
   <br>
-    <p>BS IT/ 2nd Year</p>
+    <u>BS IT/ 2nd Year</u>
     <p>Course/Year</p>
   <br>
   <br>
@@ -79,7 +82,7 @@
   <br>
   <br>
   <br>
-    <p>09123456789</p>
+    <u>09123456789</u>
     <p>Contact No.</p>
   <br>
 </div>

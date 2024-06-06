@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="dr_css/studen_prof.css">
-    <script src="dr_css/studen_prof.js"></script>
+    <link rel="stylesheet" href="{{ asset('dr_css/studen_prof.css') }}">
+    <script src="{{ asset('dr_css/studen_prof.js') }}"></script>
     <title>Document</title>
 
 </head>
@@ -15,8 +15,8 @@
 
     <div class="container">
     <div class="">
-    <h3>Student Profile</h3>
-    <img src="student_profile.jpg" alt="student_profile">
+    <h2>Student Profile</h2>
+    <b><a href="/admin/dashboard" style="margin-left:1450px; font-size:20px; color:white;">Back</a></b>
 
 
 <div class="tab">
@@ -26,119 +26,124 @@
 </div>
 
 <div id="appointment_form" class="tabcontent">
-  <p>Appointment Form</p>
+  <center>
+  <p style="font-size:30px;">Appointment Form</p>
+</center>
     <br>
-  <p>Jacklourence Broca</p>
-  <p>Full Name</p>
+ <u><p>{{$appointment->fname}}</p></u>
+  <p>First Name</p>
     <br>
-  <p>February 5, 2024</p>
+    <u><p>{{$appointment->lname}}</p></u>
+  <p>Last Name</p>
+    <br>
+    <u><p>{{$appointment->date}}</p></u>
   <p>Date</p>
     <br>
-  <p>8:00-9:00 AM</p>
+    <u><p>{{$appointment->time}}</p></u>
   <p>Time</p>
     <br>
-  <p>Annual Checkup</p>
+    <u><p>{{$appointment->specialist}}</p></u>
   <p>Reason for Appointment</p>
     <br>
-  <p>Please describe the symptoms or concerns that you would like to discuss during your appointment time</p>
-  <p>N/A</p>
+  <p>Please describe the symptoms or concerns that you would like to discuss during your appointment time:</p>
+  <u><p>{{$appointment->symptoms}}</p></u>
 
 </div>
 
 <div id="medical_record" class="tabcontent">
   <div class="grid-container">
     <div class="grid-item">
-      <p>Jacklourence Broca</p>
+    <u><p>{{$appointment->name}}</p></u>
       <p>Name</p>
         <br>
-      <p>jacklourencebroca@gmail.com</p>
+        <u><p>{{$appointment->email}}</p></u>
       <p>Email</p>
         <br>
-      <p>March 19, 2000</p>
+        <u><p>March 19, 2000</p></u>
       <p>Birthdate</p>
         <br>
-      <p>0908123456</p>
+        <u><p>0908123456</p></u>
       <p>Cotact Number</p>
         <br>
-      <p>Tambacan Iligan City</p>
+        <u><p>Tambacan Iligan City</p></u>
       <p>Address</p>
         <br>
-      <p>Jack Broca</p>
+        <u><p>Jack Broca</p></u>
       <p>Father's Name</p>
         <br>
-      <p>Jill Broca</p>
+        <u><p>Jill Broca</p></u>
       <p>Mother's Name</p>
         <br>
-      <p>N/A</p>
+        <u><p>N/A</p></u>
       <p>Spouse's Name</p>
         <br>
-      <p>Jill Broca</p>
+        <u><p>Jill Broca</p></u>
       <p>Guardian's Name</p>
         <br>
-      <p>Jill Broca</p>
+        <u><p>Jill Broca</p></u>
       <p>Person to Notify in Case of Emergency</p>
     </div>
 
     <div class="grid-item">
-      <p>2022-01111</p>
+    <u><p>2022-01111</p></u>
       <p>ID NO.</p>
         <br>
-      <p>Male</p>
+        <u><p>Male</p></u>
       <p>Sex</p>
         <br>
-      <p>24</p>
+        <u><p>24</p></u>
       <p>Age</p>
         <br>
-      <p>Single</p>
+        <u><p>Single</p></u>
       <p>Civil Status</p>
         <br><br><br><br><br><br>
-      <p>09123456789</p>
+        <u><p>09123456789</p></u>
       <p>Contact No.</p>
         <br>
-      <p>09123456789</p>
+        <u><p>09123456789</p></u>
       <p>Contact No.</p>
         <br>
-      <p>09123456789</p>
+        <u><p>09123456789</p></u>
       <p>Contact No.</p>
         <br>
-      <p>09123456789</p>
+        <u><p>09123456789</p></u>
       <p>Contact No.</p>
         <br>
-      <p>09123456789</p>
+        <u><p>09123456789</p></u>
       <p>Contact No.</p>
         <br>
     </div>
 
 
     <div class="grid-item">
-      <p>5' 11" ft</p>
+    <u><p>5' 11" ft</p></u>
       <p>Height</p>
         <br>
-      <p>60 kg</p>
+        <u><p>60 kg</p></u>
       <p>Weight</p>
         <br>
-      <p>CSS</p>
+        <u><p>CSS</p></u>
       <p>Department</p>
         <br>
-      <p>BS IT/ 2nd Year</p>
+        <u><p>BS IT/ 2nd Year</p></u>
       <p>Course/Year</p>
         <br>
-      <p>N/A</p>
+        <u><p>N/A</p></u>
       <p>History of Past Illness</p>
         <br>
-      <p>N/A</p>
+        <u><p>N/A</p></u>
       <p>Ongoing Health Problems</p>
         <br>
-      <p>N/A</p>
+        <u><p>N/A</p></u>
       <p>Surgery/Operations</p>
         <br>
-      <p>Phizer</p>
+        <u><p>Phizer</p></u>
       <p>Immunizations</p>
         <br>
-      <p>N/A</p>
+        <u><p>N/A</p></u>
       <p>Allergies</p>
         <br>
-      <p>Diabetes (P)</p>
+        <u><p>Diabetes (P)</p></u>
       <p>Family Medical Records</p>
     </div>
   </div>

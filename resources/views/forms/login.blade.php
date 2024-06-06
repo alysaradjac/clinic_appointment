@@ -11,6 +11,7 @@
     <div class="input-container">
         <form action="{{ route('login') }}" method="POST">
         @csrf
+        
         <input type="email" name="email" class="input-field" placeholder="Enter your email" value="{{ old('email') }}" required autocomplete="email">
         <br><br>
         <input type="password" name="password" id="password" class="input-field" placeholder="Enter your password" autocomplete="current-password">

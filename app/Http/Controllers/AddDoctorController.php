@@ -15,8 +15,8 @@ class AddDoctorController extends Controller
      */
     public function index()
     {
-        $doctor = Doctor::all();
-        return view('admin.admin_doctor', compact('doctor'));
+        $doctors = Doctor::all();
+        return view('admin.admin_doctor', compact('doctors'));
     }
 
     /**
@@ -44,7 +44,6 @@ class AddDoctorController extends Controller
             'mobile' => 'required',
             'password' => 'required',
             'specialist' => 'required|string',
-            'role_id' => 'required|integer', // Added validation for role_id
         ]);
 
         Doctor::create($request->all());
@@ -96,8 +95,10 @@ class AddDoctorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
-        //
+        $doctors = Doctor::find($id);
+        $doctors->delete();
+        return redirect('admin/doctors');
     }
 }

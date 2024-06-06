@@ -12,7 +12,7 @@
         <a href="/personnel">Personnel</a>
         <a href="/appointment">Appointment</a>
 
-        <a href="profile">Profile</a>
+        <a href="/profile">Profile</a>
 
         <form action="/login">
             <button type="submit" class="out">Sign Out</button>
@@ -23,7 +23,9 @@
     <h2>Medical/Dental Clinic</h2>
     <h3>APPOINTMENT FORM</h3>
 
-    <form action="/appointment">
+    <form action="{{ route('appointments.store') }}" method="POST">
+    @csrf
+    
       <label for="fname">First name:</label><br>
       <input type="text" id="fname" name="fname" value=""><br><br>
       <label for="lname">Last name:</label><br>
@@ -50,7 +52,7 @@
 <div class="symptoms-input"></div><br>
       <textarea name="symptoms" placeholder="Type your other symptoms  here..."></textarea><br>
 
-     <button type="submit" class="btn">Done</button>
+     <button type="submit" class="btn">Done</button>   <button type="button" class="cancel" onclick="location.href='/appointment'">Cancel</button>
 </div>
 </div>
 </form>

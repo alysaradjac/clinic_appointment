@@ -20,6 +20,13 @@ class RegisterController extends Controller
         return view('forms.register');
     }
 
+    public function view($id)
+    {
+        $appointments = User::find($id);
+        
+        return view('admin.admin_view');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

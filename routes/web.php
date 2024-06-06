@@ -6,10 +6,12 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LogInController;
 use App\Models\User;
 use App\Models\DoctorSchedule;
+use App\Models\Doctor;
 use App\Http\Middleware\UserLogin;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AddDoctorController;
 use App\Http\Controllers\DoctorScheduleController;
+use App\Http\Controllers\UserAppointmentController;
 use App\Http\Middleware\AdminMiddleware;
 
 /*
@@ -45,34 +47,36 @@ Route::middleware([UserLogin::class])->group(function () {
         return view('dashboard.personnel');
     });
 
-    // Route::get('/appointment', function () {
-    //     return view('dashboard.appointment');
-    // });
-
-    // Route::get('/appointment/form', function () {
-    //     return view('dashboard.appointment_form');
-    // });
+    Route::get('appointment', function () {
+        return view('dashboard.appointment');
+    });
+    
+    Route::get('/appointment/form', [UserAppointmentController::class, 'index'])->name('appointments.index');
+    Route::get('/appointment/form1', [UserAppointmentController::class, 'showForm'])->name('appointments.showForm');
+    Route::get('/appointment/form2', [UserAppointmentController::class, 'showForm2'])->name('appointments.showForm2');
+    Route::get('/appointment/form3', [UserAppointmentController::class, 'showForm3'])->name('appointments.showForm3');
+    Route::get('/appointment/form4', [UserAppointmentController::class, 'showForm4'])->name('appointments.showForm4');
+    Route::get('/appointment/form5', [UserAppointmentController::class, 'showForm5'])->name('appointments.showForm5');
+    
+    Route::get('/appointment/annual-form', [UserAppointmentController::class, 'annual'])->name('appointments.annual');
+    Route::get('/appointment/annual-form1', [UserAppointmentController::class, 'annual1'])->name('appointments.annual1');
+    Route::get('/appointment/annual-form2', [UserAppointmentController::class, 'annual2'])->name('appointments.annual2');
+    Route::get('/appointment/annual-form3', [UserAppointmentController::class, 'annual3'])->name('appointments.annual3');
+    Route::get('/appointment/annual-form4', [UserAppointmentController::class, 'annual4'])->name('appointments.annual4');
+    Route::get('/appointment/annual-form5', [UserAppointmentController::class, 'annual5'])->name('appointments.annual5');
+    
+    Route::post('/appointments', [UserAppointmentController::class, 'store'])->name('appointments.store');
 
     Route::get('/profile', function () {
         return view('dashboard.student_profile');
     });
 });
 
-Route::get('appointment', function () {
-    return view('dashboard.appointment');
-});
 
-Route::get('/appointment/form', function () {
-    return view('dashboard.appointment_form');
-});
 
-Route::get('/appointment/form1', function () {
-    return view('dashboard.appoint_form1');
-});
-
-Route::get('/appointment/annual-form', function () {
-    return view('dashboard.annual_form');
-});
+// Route::get('/appointment/annual-form', function () {
+//     return view('dashboard.annual_form');
+// });
 
 //Doctors routes
 
@@ -123,20 +127,20 @@ Route::get('/admin_login', function () {
 });
 
 Route::middleware(['admin'])->group(function () {
-    Route::get('/admin_dashboard', function () {
-        return view('admin.admin_dashboard');
-    });
-        Route::get('/admin_appointment', function () {
-            return view('admin.admin_appointment');
-        });
+    // Route::get('/admin_dashboard', function () {
+    //     return view('admin.admin_dashboard');
+    // });
+    //     Route::get('/admin_appointment', function () {
+    //         return view('admin.admin_appointment');
+    //     });
 
-        Route::get('/admin_patient', function () {
-            return view('admin.admin_patient');
-        });
+    //     Route::get('/admin_patient', function () {
+    //         return view('admin.admin_patient');
+    //     });
 
-        Route::get('/admin_history', function () {
-            return view('admin.admin_history');
-        });
+        // Route::get('/admin_history', function () {
+        //     return view('admin.admin_history');
+        // });
 
         // Route::get('/admin_schedule', function () {
         //     return view('admin.admin_schedule');
@@ -156,8 +160,28 @@ Route::middleware(['admin'])->group(function () {
         return view('admin.admin_schedule');
     });
 
+    Route::get('/admin/dashboard', [UserAppointmentController::class, 'fetch'])->name('appointments.fetch');
+
+    Route::get('/admin/view/{id}', [UserAppointmentController::class, 'view','userview'])->name('appointments.view');
+
+
+
+    Route::get('/admin_history', function () {
+        return view('admin.admin_history');
+    });
+
+        Route::get('/admin/appointment', function () {
+            return view('admin.admin_appointment');
+        });
+
+        Route::get('/admin_view', function () {
+            return view('admin.admin_view');
+        });
+
+
     Route::post('admin/schedule', [DoctorScheduleController::class, 'store'])->name('admin_schedule.store');
     Route::get('/doctor/schedule/form', [DoctorScheduleController::class, 'index'])->name('admin_schedule.index');
 
     Route::get('/admin/doctors', [AddDoctorController::class, 'index'])->name('admin_doctor');
-    Route::post('admin_doctor', [AddDoctorController::class, 'store'])->name('admin_doctor.store');
+    Route::get('delete/{id}', [AddDoctorController::class, 'delete'])->name('admin_delete');
+    Route::post('admin/doctor', [AddDoctorController::class, 'store'])->name('admin_doctor.store');

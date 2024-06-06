@@ -1,5 +1,6 @@
 body{
-    background-color: #CEBFBF;
+    background-color: #632929;
+    color:white;
 }
 
 .container{
@@ -62,6 +63,7 @@ img{
     border-top: none;
     grid-template-columns: auto auto auto;
     column-gap: 300px;
+    font-size:20px;
   }
 
   .a{
@@ -79,6 +81,7 @@ img{
     border: 0px;
     padding: 5px;
     text-align: center;
-    background-color: #D6A8A8;
+    background-color: white;
+    color:black;
     font-size: 20px;
   }

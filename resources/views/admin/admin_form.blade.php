@@ -19,7 +19,7 @@
             <button type="button" onclick="location.href='/admin/doctors'">Doctors</button><br>
             <button type="button" onclick="location.href='admin_history'">Patients History</button><br>
             <form action="admin_login">
-                <button type="submit" style="line-height:10;">Logout</button>
+            <button type="submit" style="margin-top:100px;">Logout</button>
             </form>
     </div>
     </div>

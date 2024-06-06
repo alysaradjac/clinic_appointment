@@ -12,7 +12,7 @@
         <a href="/personnel">Personnel</a>
         <a href="/appointment">Appointment</a>
 
-        <a href="profile">Profile</a>
+        <a href="/profile">Profile</a>
 
         <form action="/login">
             <button type="submit" class="out">Sign Out</button>
@@ -23,14 +23,16 @@
     <h2>Medical/Dental Clinic</h2>
     <h3>APPOINTMENT FORM</h3>
 
-    <form action="/appointment">
+    <form action="{{ route('appointments.store') }}" method="POST">
+      @csrf
+      
       <label for="fname">First name:</label><br>
-      <input type="text" id="fname" name="fname" value=""><br><br>
+      <input type="text" id="fname" name="fname" value="{{ old('fname') }}"><br><br>
       <label for="lname">Last name:</label><br>
-      <input type="text" id="lname" name="lname" value=""><br><br>
+      <input type="text" id="lname" name="lname" value="{{ old('lname') }}"><br><br>
 
       <label for="date">Date</label><br>
-      <input type="date" name="date" id="date" required>
+      <input type="date" name="date" id="date" value="{{ old('date') }}" required>
 
       <label for="time">Select Time</label>
       <select name="time" id="time">
@@ -42,10 +44,6 @@
 <div class="reason-option">
       <input type="radio" id="dental-checkup" name="specialist" value="Dental Check-Up" class="option-label" required>
       <label for="dental-checkup" class="option-text">Dental Check-Up</label><br>
-      <input type="checkbox" id="annual-checkup" class="option-label">
-      <label for="annual-checkup" class="option-text">Annual Check-Up</label><br>
-      <input type="checkbox" id="others" class="option-label">
-      <label for="others" class="option-text">Others</label>
 </div><br>
 
 <div class="symptoms">
@@ -54,7 +52,7 @@
 <div class="symptoms-input"></div><br>
       <textarea placeholder="Type your other symptoms  here..." name="symptoms"></textarea><br>
 
-     <button type="submit" class="btn">Done</button>
+     <button type="submit" class="btn">Done</button> <button type="button" class="cancel" onclick="location.href='/appointment'">Cancel</button>
 </div>
 </div>
 </form>
