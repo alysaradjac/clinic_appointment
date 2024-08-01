@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Middleware\LogInAuth;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 
@@ -30,6 +29,13 @@ class LoginController extends Controller
 
         if (Auth::attempt($incomingFields)) {
             $request->session()->regenerate();
+
+            // Check if the authenticated user is an admin
+            if (Auth::user()->is_admin) {
+                return redirect()->intended('/admin/dashboard');
+            }
+          
+            // Regular user dashboard
             return redirect()->intended('/dashboard');
         }
 

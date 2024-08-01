@@ -7,12 +7,16 @@ use App\Http\Controllers\Auth\LogInController;
 use App\Models\User;
 use App\Models\DoctorSchedule;
 use App\Models\Doctor;
+use App\Models\Remarks;
 use App\Http\Middleware\UserLogin;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AddDoctorController;
 use App\Http\Controllers\DoctorScheduleController;
 use App\Http\Controllers\UserAppointmentController;
 use App\Http\Middleware\AdminMiddleware;
+use App\Http\Controllers\RemarksController;
+use App\Http\Middleware\EnsureDoctorIsAuthenticated;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -67,11 +71,8 @@ Route::middleware([UserLogin::class])->group(function () {
     
     Route::post('/appointments', [UserAppointmentController::class, 'store'])->name('appointments.store');
 
-    Route::get('/profile', function () {
-        return view('dashboard.student_profile');
-    });
+    Route::get('/profile', [RegisterController::class, 'studentProfile']);
 });
-
 
 
 // Route::get('/appointment/annual-form', function () {
@@ -80,13 +81,26 @@ Route::middleware([UserLogin::class])->group(function () {
 
 //Doctors routes
 
-Route::get('/doctor_login', function () {
+Route::post('/doctor/logins', [AddDoctorController::class, 'login'])->name('doctor.logins');
+Route::get('/doctor/login', function () {
     return view('doctor.doctor_admin');
 });
 
-Route::get('/doctor_dashboard', function () {
-    return view('doctor.doctor_dashboard');
+
+Route::group(['middleware' => ['doctor.auth']], function () {
+    Route::get('/doctor/dashboard', [UserAppointmentController::class, 'doctorview'])->name('doctor.dashboard');
+    Route::get('/doctor/view/{id}', [UserAppointmentController::class, 'doctor'])->name('doctor.view');
+    Route::get('/doctor/remarks-form', [RemarksController::class, 'index'])->name('remarks.view');
+    Route::post('/doctor/remarks', [RemarksController::class, 'store'])->name('remarks.store');
+    Route::get('/doctor/remark/{id}', [RemarksController::class, 'remark']);
+    Route::post('/doctor/{id}/finish', [UserAppointmentController::class, 'markAsFinished'])->name('appointments.finish');
+    Route::get('/doctor/history', [UserAppointmentController::class, 'fetchFinished'])->name('appointments.finished');
 });
+
+Route::get('/remarks/form', function () {
+    return view('doctor.remarks_form');
+});
+
 
 Route::get('/doctor_appointment', function () {
     return view('doctor.doctor_appointment');
@@ -96,15 +110,11 @@ Route::get('/doctor_patient', function () {
     return view('doctor.doctor_patient');
 });
 
-Route::get('/doctor_history', function () {
-    return view('doctor.doctor_history');
-});
-
 Route::get('/student_profile', function () {
     return view('doctor.student_profile');
 });
 
-Route::get('/remarks_form', function () {
+Route::get('/remarks/form', function () {
     return view('doctor.remarks_form');
 });
 
@@ -126,43 +136,20 @@ Route::get('/admin_login', function () {
     return view('admin.admin_login');
 });
 
-Route::middleware(['admin'])->group(function () {
-    // Route::get('/admin_dashboard', function () {
-    //     return view('admin.admin_dashboard');
-    // });
-    //     Route::get('/admin_appointment', function () {
-    //         return view('admin.admin_appointment');
-    //     });
-
-    //     Route::get('/admin_patient', function () {
-    //         return view('admin.admin_patient');
-    //     });
-
-        // Route::get('/admin_history', function () {
-        //     return view('admin.admin_history');
-        // });
-
-        // Route::get('/admin_schedule', function () {
-        //     return view('admin.admin_schedule');
-        // });
-
-        // Route::get('/admin_sched', function () {
-        //     return view('admin.admin_form');
-        // });
-
-        Route::get('/admin_view', function () {
-            return view('admin.admin_view');
-        });
-
-    });
 
     Route::get('/doctor_schedule', function () {
         return view('admin.admin_schedule');
     });
 
-    Route::get('/admin/dashboard', [UserAppointmentController::class, 'fetch'])->name('appointments.fetch');
+    Route::get('/admin/dashboard', [UserAppointmentController::class, 'fetch'])->name('appointments');
+    Route::get('/admin/history', [UserAppointmentController::class, 'adminhistory'])->name('appointmen');
+    Route::post('/admin/dashboard', [LogInController::class, 'login'])->name('appointments.fetch');
 
-    Route::get('/admin/view/{id}', [UserAppointmentController::class, 'view','userview'])->name('appointments.view');
+    Route::get('/admin/view/{id}', [UserAppointmentController::class, 'view'])->name('appointment');
+
+    Route::get('/fetch-data/appointment_form/{id}', [UserAppointmentController::class, 'fetchAppointmentForm']);
+    Route::get('/fetch/medical_record', [RegisterController::class, 'fetchMedicalRecord']);
+    Route::get('/fetch/appointment_history', [UserAppointmentController::class, 'fetchAppointmentHistory']);
 
 
 
@@ -174,9 +161,6 @@ Route::middleware(['admin'])->group(function () {
             return view('admin.admin_appointment');
         });
 
-        Route::get('/admin_view', function () {
-            return view('admin.admin_view');
-        });
 
 
     Route::post('admin/schedule', [DoctorScheduleController::class, 'store'])->name('admin_schedule.store');

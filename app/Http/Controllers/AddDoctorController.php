@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use App\Models\Doctor;
 
 class AddDoctorController extends Controller
@@ -18,6 +20,8 @@ class AddDoctorController extends Controller
         $doctors = Doctor::all();
         return view('admin.admin_doctor', compact('doctors'));
     }
+
+    
 
     /**
      * Show the form for creating a new resource.
@@ -55,6 +59,27 @@ class AddDoctorController extends Controller
      }
     }
 
+    public function login(Request $request)
+    {
+        $credentials = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+    
+        $doctor = Doctor::where('email', $credentials['email'])->first();
+    
+        if ($doctor && Hash::check($credentials['password'], $doctor->password)) {
+            Auth::login($doctor);
+            return redirect()->intended('doctor/dashboard');
+        }
+    
+        return back()->withErrors([
+            'email' => 'The provided credentials do not match our records.',
+        ])->onlyInput('email');
+    }
+    
+
+
     /**
      * Display the specified resource.
      *
@@ -87,6 +112,14 @@ class AddDoctorController extends Controller
     public function update(Request $request, $id)
     {
         //
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/doctor/login'); // Redirect to the login page or any other page
     }
 
     /**

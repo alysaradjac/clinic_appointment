@@ -24,8 +24,14 @@ class RegisterController extends Controller
     {
         $appointments = User::find($id);
         
-        return view('admin.admin_view');
+        return view('dashboard.admin_view');
     }
+
+public function studentProfile()
+{
+
+    return view('dashboard.student_profile');
+}
 
     /**
      * Show the form for creating a new resource.

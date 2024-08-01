@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Doctor;
 
 class User extends Authenticatable
 {
@@ -35,4 +36,9 @@ class User extends Authenticatable
         'maternal' => 'array',
     ];
     
+public function Doctor()
+{
+    return $this->hasMany(Doctor::class); // or another relationship type, depending on your application's logic
+}
+
 }

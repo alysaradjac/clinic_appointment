@@ -16,11 +16,12 @@ return new class extends Migration
         Schema::create('user_appointment', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->string('fname');
+            $table->string('firstname');
             $table->string('lname');
             $table->date('date');
             $table->string('time');
             $table->string('specialist');
+            $table->string('status')->default('pending');
             $table->text('symptoms')->nullable();
             $table->timestamps();
         });
@@ -34,5 +35,9 @@ return new class extends Migration
     public function down()
     {
         Schema::dropIfExists('user_appointment');
+
+        Schema::table('user_appointment', function (Blueprint $table) {
+            $table->dropColumn('status');
+        });
     }
 };

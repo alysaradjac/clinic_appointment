@@ -14,7 +14,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('mobile');
             $table->string('password');
-            $table->string('specialist');
+            $table->string('specialist'); // Keep the specialist fieldt
             $table->timestamps();
         });
     }

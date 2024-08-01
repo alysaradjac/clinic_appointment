@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <link rel="stylesheet" href="dr_css/dashboard.css">
+    <link rel="stylesheet" href="{{ asset('dr_css/dashboard.css') }}">
 </head>
 <body>
     <div class="navbar_top">
@@ -15,12 +15,11 @@
     <div class="container">
     <div class="container_left">
     <div class="btn">
-            <button type="button" onclick="location.href='doctor_dashboard'">Dasboard</button><br>
-            <button type="button" onclick="location.href='doctor_patient'">Appoinment</button><br>
-            <button type="button" onclick="location.href='doctor_appointment'">Schedule</button><br>
-            <button type="button" onclick="location.href='doctor_history'">History</button><br>
-            <form action="doctor_login">
-                <button type="submit">Logout</button>
+            <button type="button" onclick="location.href='/doctor/dashboard'">Dasboard</button><br>
+            <button type="button" onclick="location.href='/doctor/history'">History</button><br>
+            <form action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button type="submit" style="margin-top:200px;">Logout</button>
             </form>
         </td>
     </div>
@@ -30,19 +29,22 @@
         <h2 class="hright">History</h2><br><br>
         <table class="above_table">
         <tr>
-            <th>ID</th>
-            <th>Name</th>
+            <th>First Name</th>
+            <th>Last Name</th>
             <th>Date</th>
             <th>Time</th>
-            <th>Remarks</th>
+            <th>Reason</th>
         </tr>
         <tr>
-            <td>2022-00001</td>
-            <td>Jacklourence Broca</td>
-            <td>02/05/2024</td>
-            <td>8:00-9:00 AM</td>
-            <td><a href="/remarks">Remarks</a></td>
+        @foreach($appointments as $appointment)
+                <td>{{ $appointment->firstname }}</td>
+                <td>{{ $appointment->lname }}</td>
+                <td>{{ $appointment->date }}</td>
+                <td>{{ $appointment->time }}</td>
+                <td>{{ $appointment->specialist }}</td>
+            <td><a href="/doctor/remark/{id}">Remarks</a></td>
         </tr>
+        @endforeach
     </div>
     </table>
 </body>

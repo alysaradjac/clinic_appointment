@@ -4,8 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\UserAppointment;
 use App\Models\User;
+use App\Models\Doctor;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\AddDoctorController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 class UserAppointmentController extends Controller
 {
@@ -83,29 +87,116 @@ class UserAppointmentController extends Controller
 
     public function fetch()
     {
-        $appointments = UserAppointment::all();
+        $appointments = UserAppointment::where('status', '!=', 'finished')->get();
         return view('admin.admin_dashboard', compact('appointments'));
+    }
+
+    public function adminhistory()
+    {
+        $appointments = UserAppointment::where('status', 'finished')->orderBy('date')->get();
+        return view('admin.admin_history', compact('appointments'));
     }
 
     public function view($id)
     {
         $appointment = UserAppointment::find($id);
+        $user = User::find($id);
     
         if (!$appointment) {
             // Handle the case where the appointment is not found
             return redirect('/admin/dashboard')->with('error', 'Appointment not found.');
         }
     
-        return view('admin.admin_view', compact('appointment'));
+        return view('admin.admin_view', compact('appointment' , 'user'));
+    }
+    
+
+    public function doctor($id)
+    {
+        $appointment = UserAppointment::find($id);
+        $user = User::find($id);
+    
+        if (!$appointment) {
+            // Handle the case where the appointment is not found
+            return redirect('/doctor/dashboard')->with('error', 'Appointment not found.');
+        }
+
+        $appointment->immunization = json_encode($appointment->immunization);
+        $appointment->vaccine = json_encode($appointment->vaccine);
+        $appointment->allergies = json_encode($appointment->allergies);
+        $appointment->medical_history = json_encode($appointment->medical_history);
+        $appointment->paternal = json_encode($appointment->paternal);
+        $appointment->maternal = json_encode($appointment->maternal);
+    
+        return view('doctor.doctor_view', compact('appointment','user'));
+    }
+
+    public function doctors($id)
+    {
+        $appointment = User::find($id);
+    
+        if (!$appointment) {
+            // Handle the case where the appointment is not found
+            return redirect('/doctor/dashboard')->with('error', 'Appointment not found.');
+        }
+
+        $appointment->immunization = json_encode($appointment->immunization);
+        $appointment->vaccine = json_encode($appointment->vaccine);
+        $appointment->allergies = json_encode($appointment->allergies);
+        $appointment->medical_history = json_encode($appointment->medical_history);
+        $appointment->paternal = json_encode($appointment->paternal);
+        $appointment->maternal = json_encode($appointment->maternal);
+    
+        return view('doctor.doctor_view', compact('appointment'));
     }
 
     public function userview($id)
     {
         $appointment = User::find($id);
     
+        if (!$appointment) {
+            // Handle the case where the appointment is not found
+            return redirect('/admin/dashboard')->with('error', 'Appointment not found.');
+        }
+
+        $appointment->immunization = json_encode($appointment->immunization);
+        $appointment->vaccine = json_encode($appointment->vaccine);
+        $appointment->allergies = json_encode($appointment->allergies);
+        $appointment->medical_history = json_encode($appointment->medical_history);
+        $appointment->paternal = json_encode($appointment->paternal);
+        $appointment->maternal = json_encode($appointment->maternal);
+    
         return view('admin.admin_view', compact('appointment'));
     }
+    
 
+    public function doctorview()
+    {
+        // Fetch appointments based on the specialist of the authenticated doctor
+        $appointments = UserAppointment::where('status', '!=', 'finished')->get();
+        return view('doctor.doctor_dashboard', compact('appointments'));
+    }
+    
+
+    public function markAsFinished($id)
+    {
+        $appointment = UserAppointment::find($id);
+    
+        if (!$appointment) {
+            return redirect('/doctor/dashboard')->with('error', 'Appointment not found.');
+        }
+    
+        $appointment->update(['status' => 'finished']);
+    
+        return redirect()->back()->with('success', 'Appointment marked as finished.');
+    }
+    
+    public function fetchFinished()
+    {
+        $appointments = UserAppointment::where('status', 'finished')->orderBy('date')->get();
+        return view('doctor.doctor_history', compact('appointments'));
+    }
+    
 
 
     public function create()
@@ -116,7 +207,7 @@ class UserAppointmentController extends Controller
     public function store(Request $request)
     {
             $validatedData = $request->validate([
-                'fname' => 'required|string|max:255',
+                'firstname' => 'required|string|max:255',
                 'lname' => 'required|string|max:255',
                 'date' => 'required|date',
                 'time' => 'required|string',

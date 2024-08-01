@@ -28,8 +28,14 @@ class Doctor extends Authenticatable
 
     protected $guarded = [];
 
+    public function appointments()
+    {
+        return $this->hasMany('App\\UserAppointment', 'specialist');
+    }
+    
     public function setPasswordAttribute($value)
     {
         $this->attributes['password'] = bcrypt($value);
     }
+
 }

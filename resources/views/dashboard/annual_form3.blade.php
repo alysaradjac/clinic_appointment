@@ -26,7 +26,7 @@
     <form action="{{ route('appointments.store') }}" method="POST">
     @csrf
       <label for="fname">First name:</label><br>
-      <input type="text" id="fname" name="fname"><br><br>
+      <input type="text" id="fname" name="firstname"><br><br>
       <label for="lname">Last name:</label><br>
       <input type="text" id="lname" name="lname"><br><br>
 

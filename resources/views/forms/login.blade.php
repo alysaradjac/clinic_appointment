@@ -19,8 +19,7 @@
         <button type="submit" class="submit">Sign In</button>
         <br><br>
         <a href="/register" style="margin-right:50px;">Not registered? Sign Up here!</a>
-        <a href="/admin_login" style="text-decoration:none; color:black;">Admin</a>&nbsp;&nbsp;&nbsp;
-        <a href="/doctor_login" style="text-decoration:none; color:black;">Doctor</a>
+        <a href="/doctor/login" style="text-decoration:none; color:black;">Doctor</a>
     </form>
     </div>
 </body>

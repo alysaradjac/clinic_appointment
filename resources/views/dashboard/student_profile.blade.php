@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <title>Student Profile</title>
-    <link rel="stylesheet" href="user_css/student_prof.css">
+    <link rel="stylesheet" href="{{ asset('user_css/student_prof.css') }}">
 </head>
 <body>
   
@@ -14,7 +14,8 @@
 
         <a href="profile">Profile</a>
 
-        <form action="/login">
+        <form action="{{ route('logout') }}" method="POST">
+        @csrf
             <button type="submit" class="out">Sign Out</button>
         </form>
 </div>
@@ -29,10 +30,10 @@
   </div>
 
 <div class="item2">
-    <u>Jacklourence Broca</u>
+    <u>Christhel Pitos</u>
     <p>Name</p>
   <br>
-    <u>jacklourencebroca@gmail.com</u>
+    <u>miray@gmail.com</u>
     <p>Email</p>
    <br>
     <u>March 19, 2000</u>

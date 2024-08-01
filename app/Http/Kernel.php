@@ -66,5 +66,6 @@ class Kernel extends HttpKernel
         'auth.user' => \App\Http\Middleware\UserLogin::class,
         'admin' => \App\Http\Middleware\AdminMiddleware::class,
         'guest' => \App\Http\Middleware\LogInAuth::class,
+        'doctor.auth' => \App\Http\Middleware\EnsureDoctorIsAuthenticated::class,
     ];
 }

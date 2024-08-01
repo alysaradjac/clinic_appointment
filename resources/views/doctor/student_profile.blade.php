@@ -49,57 +49,57 @@
 <div id="medical_record" class="tabcontent">
   <div class="grid-container">
     <div class="grid-item">
-      <p>Jacklourence Broca</p>
+      <p>{{$user->name}}</p>
       <p>Name</p>
         <br>
-      <p>jacklourencebroca@gmail.com</p>
+      <p>{{$user->email}}</p>
       <p>Email</p>
         <br>
-      <p>March 19, 2000</p>
+      <p>{{$user->bdate}}</p>
       <p>Birthdate</p>
         <br>
-      <p>0908123456</p>
+      <p>{{$user->contact}}</p>
       <p>Cotact Number</p>
         <br>
-      <p>Tambacan Iligan City</p>
+      <p>{{$user->haddress}}</p>
       <p>Address</p>
         <br>
-      <p>Jack Broca</p>
+      <p>{{$user->fname}}</p>
       <p>Father's Name</p>
         <br>
-      <p>Jill Broca</p>
+      <p>{{$user->mname}}</p>
       <p>Mother's Name</p>
         <br>
-      <p>N/A</p>
+      <p>{{$user->sname}}</p>
       <p>Spouse's Name</p>
         <br>
-      <p>Jill Broca</p>
+      <p>{{$user->guardian}}</p>
       <p>Guardian's Name</p>
         <br>
-      <p>Jill Broca</p>
+      <p>{{$user->emergency}}</p>
       <p>Person to Notify in Case of Emergency</p>
     </div>
 
     <div class="grid-item">
-      <p>2022-01111</p>
+      <p>{{$user->school_id}}</p>
       <p>ID NO.</p>
         <br>
-      <p>Male</p>
+      <p>{{$user->sex}}</p>
       <p>Sex</p>
         <br>
-      <p>24</p>
+      <p>{{$user->age}}</p>
       <p>Age</p>
         <br>
-      <p>Single</p>
+      <p>{{$user->civil_status}}</p>
       <p>Civil Status</p>
         <br><br><br><br><br><br>
-      <p>09123456789</p>
+      <p>{{$user->contactF}}</p>
       <p>Contact No.</p>
         <br>
-      <p>09123456789</p>
+      <p>{{$user->contactM}}</p>
       <p>Contact No.</p>
         <br>
-      <p>09123456789</p>
+      <p>{{$user->conta}}</p>
       <p>Contact No.</p>
         <br>
       <p>09123456789</p>

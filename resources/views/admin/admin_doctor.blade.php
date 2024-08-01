@@ -16,10 +16,10 @@
     <div class="container_left">
     <div class="btn">
             <button type="button" onclick="location.href='/admin/dashboard'">Dasboard</button><br>
-            <button type="button" onclick="location.href='/admin/appointment'">Patient</button><br>
             <button type="button" onclick="location.href='/admin/doctors'">Doctors</button><br>
             <button type="button" onclick="location.href='/admin/history'">Patients History</button><br>
-            <form action="/admin_login">
+            <form action="{{ route('logout') }}" method="POST">
+                @csrf
             <button type="submit" style="margin-top:100px;">Logout</button>
             </form>
     </div>

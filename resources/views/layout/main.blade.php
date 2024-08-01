@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<htm lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +14,7 @@
         <a href="/personnel">Personnel</a>
         <a href="appointment">Appointment</a>
 
-        <a href="profile">Profile</a>
+        <a href="/profile">Profile</a>
 
         <form action="{{ route('logout') }}" method="POST">
         @csrf
@@ -24,4 +24,4 @@
 
     
 </body>
-</html>
+</htm

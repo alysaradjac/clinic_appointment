@@ -15,7 +15,7 @@
     <div class="container">
     <div class="">
     <h2>Student Profile</h2>
-    <b><a href="/admin/dashboard" style="margin-left:1450px; font-size:20px; color:white;">Back</a></b>
+    <b><a href="/doctor/dashboard" style="margin-left:1450px; font-size:20px; color:white;">Back</a></b>
 
 
 <div class="tab">
@@ -43,9 +43,12 @@
     <br>
     <u><p>{{$appointment->specialist}}</p></u>
   <p>Reason for Appointment</p>
+
+  <a href="/remarks/form" style="font-size:20px; margin-left:1300px; color:white;">Give Remarks</a>
     <br>
   <p>Please describe the symptoms or concerns that you would like to discuss during your appointment time:</p>
   <u><p>{{$appointment->symptoms}}</p></u>
+  <br><br><br><br><br>
 
 </div>
 
@@ -67,7 +70,7 @@
         <u><p>{{$user->caddress}}</p></u>
       <p>Address</p>
         <br>
-        <u><p>{{$user->haddress}}</p></u>
+        <u><p>{{$appointment->haddress}}</p></u>
       <p>Home Address</p>
         <br>
         <u><p>{{$user->fname}}</p></u>
@@ -98,7 +101,7 @@
         <br>
         <u><p>{{$user->civil_status}}</p></u>
       <p>Civil Status</p>
-        <br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br>
         <u><p>{{$user->contactF}}</p></u>
       <p>Contact No.</p>
         <br>

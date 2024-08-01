@@ -11,13 +11,14 @@ class UserAppointment extends Model
     protected $table = 'user_appointment';
 
     protected $fillable = [
-        'fname',
+        'firstname',
         'lname',
         'date',
         'time',
         'specialist',
         'symptoms',
         'user_id',
+        'status'
     ];
 
     protected $hidden = [

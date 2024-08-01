@@ -26,8 +26,8 @@
     <form action="{{ route('appointments.store') }}" method="POST">
       @csrf
       
-      <label for="fname">First name:</label><br>
-      <input type="text" id="fname" name="fname" value="{{ old('fname') }}"><br><br>
+      <label for="firstname">First name:</label><br>
+      <input type="text" id="fname" name="firstname" value="{{ old('firstname') }}"><br><br>
       <label for="lname">Last name:</label><br>
       <input type="text" id="lname" name="lname" value="{{ old('lname') }}"><br><br>
 

@@ -6,61 +6,52 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('password');
-            $table->string('email');
-            $table->date('bdate');
-            $table->string('contact');
-            $table->string('caddress');
-            $table->string('haddress');
-            $table->string('fname');
-            $table->string('mname');
+            $table->string('email')->unique();
+            $table->date('bdate')->nullable();
+            $table->string('contact')->nullable();
+            $table->string('caddress')->nullable();
+            $table->string('haddress')->nullable();
+            $table->string('fname')->nullable();
+            $table->string('mname')->nullable();
             $table->string('sname')->nullable();
             $table->string('guardian')->nullable();
-            $table->string('emergency');
-            $table->string('history');
-            $table->string('health_problems');
-            $table->string('surgery');
+            $table->string('emergency')->nullable();
+            $table->string('history')->nullable();
+            $table->string('health_problems')->nullable();
+            $table->string('surgery')->nullable();
             $table->text('others')->nullable();
-            $table->string('contactF');
-            $table->string('contactM');
+            $table->string('contactF')->nullable();
+            $table->string('contactM')->nullable();
             $table->string('contactS')->nullable();
             $table->string('contactG')->nullable();
-            $table->string('contactP');
-            $table->string('school_id');
-            $table->string('dept');
-            $table->string('course');
-            $table->string('age');
-            $table->string('sex');
-            $table->string('civil_status');
-            $table->string('religion');
-            $table->string('height');
-            $table->string('weight');
+            $table->string('contactP')->nullable();
+            $table->string('school_id')->nullable();
+            $table->string('dept')->nullable();
+            $table->string('course')->nullable();
+            $table->string('age')->nullable();
+            $table->string('sex')->nullable();
+            $table->string('civil_status')->nullable();
+            $table->string('religion')->nullable();
+            $table->string('height')->nullable();
+            $table->string('weight')->nullable();
             
-            $table->json('immunization', 'array')->nullable()->default(json_encode([]));
-            $table->json('vaccine', 'array')->nullable()->default(json_encode([]));
-            $table->json('allergies', 'array')->nullable()->default(json_encode([]));
-            $table->json('medical_history', 'array')->nullable()->default(json_encode([]));
-            $table->json('paternal', 'array')->nullable()->default(json_encode([]));
-            $table->json('maternal', 'array')->nullable()->default(json_encode([]));
+            $table->json('immunization')->nullable()->default(json_encode([]));
+            $table->json('vaccine')->nullable()->default(json_encode([]));
+            $table->json('allergies')->nullable()->default(json_encode([]));
+            $table->json('medical_history')->nullable()->default(json_encode([]));
+            $table->json('paternal')->nullable()->default(json_encode([]));
+            $table->json('maternal')->nullable()->default(json_encode([]));
+            $table->boolean('is_admin')->default(false);
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('users');
