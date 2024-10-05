@@ -75,10 +75,6 @@ Route::middleware([UserLogin::class])->group(function () {
 });
 
 
-// Route::get('/appointment/annual-form', function () {
-//     return view('dashboard.annual_form');
-// });
-
 //Doctors routes
 
 Route::post('/doctor/logins', [AddDoctorController::class, 'login'])->name('doctor.logins');
